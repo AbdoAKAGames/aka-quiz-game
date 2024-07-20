@@ -918,7 +918,7 @@
     const img = new Image(50, 50);
     for (let i = 0; i < 150; i++) {
         let bal = document.createElement('img');
-        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+        bal.src = 'paper' + Math.floor(Math.random() * 6) + '.png';
         bal.width = 10;
         bal.height = 10;
         bal.classList.add('bal')
@@ -943,7 +943,7 @@
     Question.innerHTML = ``;
     if(correctAnswers >= 0 && correctAnswers <= 6){
         Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
-        img.src = 'che/blue.png'
+        img.src = 'blue.png'
         img.className = 'blue';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -957,7 +957,7 @@
         }, 100);
     }else if(correctAnswers >= 7 && correctAnswers <= 10){
         Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
-        img.src = 'che/bronze.png'
+        img.src = 'bronze.png'
         img.className = 'bronze';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -971,7 +971,7 @@
         }, 100);
     }else if(correctAnswers >= 11 && correctAnswers <= 14){
         Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
-        img.src = 'che/silver.png'
+        img.src = 'silver.png'
         img.className = 'silver';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -985,7 +985,7 @@
         }, 100);
     }else if(correctAnswers == 15){
         Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
-        img.src = 'che/gold.png'
+        img.src = 'gold.png'
         img.className = 'gold';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
