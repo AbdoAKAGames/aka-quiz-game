@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>أسئلة دينية عامة ج2</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+        <style>
+            body{
+                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(che/Game3.png);
+            }
+        </style>
+    </head>
+    <body>
+            <a href="game.html" class="back" ><img src="che/home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+    <div class="game">
+    <div class="text">
+    <h1 class="Question">:السؤال الأول<br>من هو النبي الذي تمنى أن يموت</h1>
+    </div>
+    <div class="buttons">
+    <input type="button" id="button1" value="يوسف"><br><br><br>
+    <input type="button" id="button2" value="هود"><br><br><br>
+    <input type="button" id="button3" value="ابرهيم"><br>
+    <input type="button" value="التالي" id="next">
+    </div>
+    </div>
+        
+    <script>
+let Question = document.getElementsByClassName('Question')[0];
+let button1 = document.getElementById('button1');
+let button2 = document.getElementById('button2');
+let button3 = document.getElementById('button3');
+let total = 15;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
+let quesNumber = 1;
+let ans;
+let bg = 'linear-gradient(#0000ff, #00ffff)';
+let disbg = 'linear-gradient(#666, #555)';
+let next = document.getElementById('next');
+
+window.addEventListener("load", e => {
+    button1.click();
+})
+
+document.addEventListener("click", function evl() {
+    if(quesNumber === 1){
+    button1.onclick = () => {
+        ans = 'يوسف';
+    }
+    button2.onclick = () => {
+        ans = 'هود';
+    }
+    button3.onclick = () => {
+        ans = 'ابراهيم';
+    }
+}
+if(quesNumber === 1 && ans === 'يوسف'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 2;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 1 && ans === 'هود' || quesNumber === 1 && ans === 'ابراهيم'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 2;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+    if(quesNumber === 2){
+    button1.value = 'داوود';
+    button2.value = 'صالح';
+    button3.value = 'موسى';
+    Question.innerHTML = `:السؤال الثاني<br>من هو النبي الذي فقأ عين ملك الموت`;
+    button1.onclick = () => {
+        ans = 'داوود';
+    }
+    button2.onclick = () => {
+        ans = 'صالح';
+    }
+    button3.onclick = () => {
+        ans = 'موسى';
+    }
+}
+if(quesNumber === 2 && ans === 'موسى'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 3;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 2 && ans === 'داوود' || quesNumber === 2 && ans === 'صالح'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 3;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 3){
+    button1.value = 'آدم';
+    button2.value = 'شيث';
+    button3.value = 'إدريس';
+    Question.innerHTML = `:السؤال الثالث<br>من هو اول من خط بالقلم`;
+    button1.onclick = () => {
+        ans = 'آدم';
+    }
+    button2.onclick = () => {
+        ans = 'شيث';
+    }
+    button3.onclick = () => {
+        ans = 'إدريس';
+    }
+}
+if(quesNumber === 3 && ans === 'إدريس'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 4;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 3 && ans === 'آدم' || quesNumber === 3 && ans === 'شيث'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 4;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 4){
+    button1.value = 'نوح';
+    button2.value = 'إبراهيم';
+    button3.value = 'ادم';
+    Question.innerHTML = `:السؤال الرابع<br>من هو أبو الأنبياء`;
+    button1.onclick = () => {
+        ans = 'نوح';
+    }
+    button2.onclick = () => {
+        ans = 'إبراهيم';
+    }
+    button3.onclick = () => {
+        ans = 'ادم';
+    }
+}
+if(quesNumber === 4 && ans === 'إبراهيم'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 5;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 4 && ans === 'نوح' || quesNumber === 4 && ans === 'ادم'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 5;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 5){
+    button1.value = '7';
+    button2.value = '6';
+    button3.value = '5';
+    Question.innerHTML = `:السؤال الخامس<br>كم مرة ورد ذِكْرُ مصر في القرآن الكريم صراحة`;
+    button1.onclick = () => {
+        ans = '7';
+    }
+    button2.onclick = () => {
+        ans = '6';
+    }
+    button3.onclick = () => {
+        ans = '5';
+    }
+}
+if(quesNumber === 5 && ans === '5'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 6;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 5 && ans === '6' || quesNumber === 5 && ans === '7'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 6;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 6){
+    button1.value = 'الظهر';
+    button2.value = 'العصر';
+    button3.value = 'الفجر';
+    Question.innerHTML = `:السؤال السادس<br>ما هي أول صلاة صلاها سيدنا محمد صلى الله عليه وسلم`;
+    button1.onclick = () => {
+        ans = 'الظهر';
+    }
+    button2.onclick = () => {
+        ans = 'العصر';
+    }
+    button3.onclick = () => {
+        ans = 'الفجر';
+    }
+}
+if(quesNumber === 6 && ans === 'الظهر'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 7;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 6 && ans === 'العصر' || quesNumber === 6 && ans === 'الفجر'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 7;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 7){
+    button1.value = 'نوح عليه السلام';
+    button2.value = 'صالح عليه السلام';
+    button3.value = 'هود عليه السلام';
+    Question.innerHTML = `:السؤال السابع<br>من هو أول من قدر الساعات الاثنى عشر`;
+    button1.onclick = () => {
+        ans = 'نوح عليه السلام';
+    }
+    button2.onclick = () => {
+        ans = 'صالح عليه السلام';
+    }
+    button3.onclick = () => {
+        ans = 'هود عليه السلام';
+    }
+}
+if(quesNumber === 7 && ans === 'نوح عليه السلام'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 8;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 7 && ans === 'صالح عليه السلام' || quesNumber === 7 && ans === 'هود عليه السلام'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 8;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 8){
+    button1.value = 'ميكال عليه السلام';
+    button2.value = 'جبريل عليه السلام';
+    button3.value = 'مالك عليه السلام';
+    Question.innerHTML = `:السؤال الثامن<br>من هو أول من أذَّن في السماء`;
+    button1.onclick = () => {
+        ans = 'ميكال عليه السلام';
+    }
+    button2.onclick = () => {
+        ans = 'جبريل عليه السلام';
+    }
+    button3.onclick = () => {
+        ans = 'مالك عليه السلام';
+    }
+}
+if(quesNumber === 8 && ans === 'جبريل عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 9;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 8 && ans === 'ميكال عليه السلام' || quesNumber === 8 && ans === 'مالك عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 9;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 9){
+    button1.value = 'جبريل عليه السلام';
+    button2.value = 'رضوان عليه السلام';
+    button3.value = 'إسرافيل عليه السلام';
+    Question.innerHTML = `:السؤال التاسع<br>من هو أول من قال سبحان ربي الأعلى`;
+    button1.onclick = () => {
+        ans = 'جبريل عليه السلام';
+    }
+    button2.onclick = () => {
+        ans = 'رضوان عليه السلام';
+    }
+    button3.onclick = () => {
+        ans = 'إسرافيل عليه السلام';
+    }
+}
+if(quesNumber === 9 && ans === 'إسرافيل عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 10;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 9 && ans === 'جبريل عليه السلام' || quesNumber === 9 && ans === 'رضوان عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 10;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 10){
+    button1.value = 'شيث عليه السلام';
+    button2.value = 'نوح عليه السلام';
+    button3.value = 'إدريس عليه السلام';
+    Question.innerHTML = `:السؤال العاشر<br>من هو أول من جاهد في سبيل الله`;
+    button1.onclick = () => {
+        ans = 'شيث عليه السلام';
+    }
+    button2.onclick = () => {
+        ans = 'نوح عليه السلام';
+    }
+    button3.onclick = () => {
+        ans = 'إدريس عليه السلام';
+    }
+}
+if(quesNumber === 10 && ans === 'إدريس عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 11;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 10 && ans === 'شيث عليه السلام' || quesNumber === 10 && ans === 'نوح عليه السلام'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 11;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 11){
+    button1.value = 'عمر بن الخطاب';
+    button2.value = 'أبو بكر الصديق';
+    button3.value = 'عثمان بن عفان';
+    Question.innerHTML = `:السؤال الحادي عشر<br>من هو عتيق الله من النار`;
+    button1.onclick = () => {
+        ans = 'عمر بن الخطاب';
+    }
+    button2.onclick = () => {
+        ans = 'أبو بكر الصديق';
+    }
+    button3.onclick = () => {
+        ans = 'عثمان بن عفان';
+    }
+}
+if(quesNumber === 11 && ans === 'أبو بكر الصديق'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 12;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 11 && ans === 'عمر بن الخطاب' || quesNumber === 11 && ans === 'عثمان بن عفان'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 12;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 12){
+    button1.value = 'سعد بن معاذ';
+    button2.value = 'معاذ بن جبل';
+    button3.value = 'سعيد بن زيد';
+    Question.innerHTML = `:السؤال الثاني عشر<br>من العشرة المبشرين بالجنة`;
+    button1.onclick = () => {
+        ans = 'سعد بن معاذ';
+    }
+    button2.onclick = () => {
+        ans = 'معاذ بن جبل';
+    }
+    button3.onclick = () => {
+        ans = 'سعيد بن زيد';
+    }
+}
+if(quesNumber === 12 && ans === 'سعيد بن زيد'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 13;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 12 && ans === 'سعد بن معاذ' || quesNumber === 12 && ans === 'معاذ بن جبل'){
+    button1.style.background = 'red';
+    button2.style.background = 'red';
+    button3.style.background = 'yellowgreen';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 13;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 13){
+    button1.value = 'خالد بن الوليد';
+    button2.value = 'أبو بكر الصديق';
+    button3.value = 'عمر بن الخطاب';
+    Question.innerHTML = `:السؤال الثالث عشر<br>من هو سيف الله المسلول`;
+    button1.onclick = () => {
+        ans = 'خالد بن الوليد';
+    }
+    button2.onclick = () => {
+        ans = 'أبو بكر الصديق';
+    }
+    button3.onclick = () => {
+        ans = 'عمر بن الخطاب';
+    }
+}
+if(quesNumber === 13 && ans === 'خالد بن الوليد'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 14;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    correctAnswers++;
+}else if(quesNumber === 13 && ans === 'أبو بكر الصديق' || quesNumber === 13 && ans === 'عمر بن الخطاب'){
+    button1.style.background = 'yellowgreen';
+    button2.style.background = 'red';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 14;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 14){
+    button1.value = 'علي بن أبي طالب';
+    button2.value = 'عثمان بن عفان';
+    button3.value = 'أبو عبيدة بن الجراح';
+    Question.innerHTML = `:السؤال الرابع عشر<br>كانت تستحي منه الملائكة`;
+    button1.onclick = () => {
+        ans = 'علي بن أبي طالب';
+    }
+    button2.onclick = () => {
+        ans = 'عثمان بن عفان';
+    }
+    button3.onclick = () => {
+        ans = 'أبو عبيدة بن الجراح';
+    }
+}
+if(quesNumber === 14 && ans === 'عثمان بن عفان'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 15;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+        next.value = 'انهاء';
+    })
+    correctAnswers++;
+}else if(quesNumber === 14 && ans === 'علي بن أبي طالب' || quesNumber === 14 && ans === 'أبو عبيدة بن الجراح'){
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 15;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.style.background = disbg;
+        next.style.pointerEvents = 'none';
+        next.value = 'انهاء';
+    })
+    incorrectAnswers++;
+}
+if(quesNumber === 15){
+    button1.value = 'الشعراء';
+    button2.value = 'النمل';
+    button3.value = 'القصص';
+    Question.innerHTML = `:السؤال الخامس عشر<br>ما هي السورة التي تحتوي على بسملتين`;
+    button1.onclick = () => {
+        ans = 'الشعراء';
+    }
+    button2.onclick = () => {
+        ans = 'النمل';
+    }
+    button3.onclick = () => {
+        ans = 'القصص';
+    }
+}
+if(quesNumber === 15 && ans === 'النمل'){
+    correctAnswers++;
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 0;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.remove();
+    })
+}else if(quesNumber === 15 && ans === 'الشعراء' || quesNumber === 15 && ans === 'القصص'){
+    incorrectAnswers++;
+    button1.style.background = 'red';
+    button2.style.background = 'yellowgreen';
+    button3.style.background = 'red';
+    button1.disabled = true;
+    button2.disabled = true;
+    button3.disabled = true;
+    next.style.background = bg;
+    next.style.pointerEvents = 'all';
+    next.addEventListener("click", e => {
+        quesNumber = 0;
+        button1.style.background = bg;
+        button2.style.background = bg;
+        button3.style.background = bg;
+        button1.disabled = false;
+        button2.disabled = false;
+        button3.disabled = false;
+        next.remove();
+    })
+}
+if(quesNumber === 0){
+    document.removeEventListener('click', evl);
+    button1.remove();
+    button2.remove();
+    button3.remove();
+    const img = new Image(50, 50);
+    for (let i = 0; i < 150; i++) {
+        let bal = document.createElement('img');
+        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+        bal.width = 10;
+        bal.height = 10;
+        bal.classList.add('bal')
+        bal.draggable = false;
+        bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        document.body.append(bal);
+    };
+    
+    for (let j = 0; j < 150; j++) {
+        let img = document.getElementsByClassName('bal')[j];
+        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+    };
+    
+    for (let x = 0; x < 150; x++) {
+        let tag = document.getElementsByClassName('bal')[x];
+        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+        setInterval(() => {
+            t1 -= Math.floor(Math.random() * 3);
+            tag.style.bottom = t1 + 'px';
+        }, 15);
+    };
+    Question.innerHTML = ``;
+    if(correctAnswers >= 0 && correctAnswers <= 6){
+        Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
+        img.src = 'che/blue.png'
+        img.className = 'blue';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('blue')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 7 && correctAnswers <= 10){
+        Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
+        img.src = 'che/bronze.png'
+        img.className = 'bronze';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('bronze')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 11 && correctAnswers <= 14){
+        Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
+        img.src = 'che/silver.png'
+        img.className = 'silver';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('silver')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers == 15){
+        Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
+        img.src = 'che/gold.png'
+        img.className = 'gold';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('gold')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }
+}
+});
+const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            button1.style.fontSize = '150%';
+            button2.style.fontSize = '150%';
+            button3.style.fontSize = '150%';
+            button1.style.height = '50px';
+            button2.style.height = '50px';
+            button3.style.height = '50px';
+        }
+        document.addEventListener('keyup', e => {
+            if(e.key === 'Enter') next.click();
+        })
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <style>
+        body{
+            background-image: url(che/stars.png);
+        }
+        html,body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        .groups{
+            width: 100%;
+            height: 65%;
+            position: fixed;
+            bottom: 0;
+            background-image: url(che/stars.png);
+        }
+        .groups-text{
+            color: #fff;
+            font-family: Aldhabi;
+            font-size: 48px;
+            animation: txt 5s linear 0s infinite alternate;
+        }
+        .group{
+            background: rgba(0, 119, 238, 0.5);
+            width: 10%;
+            height: 10%;
+            text-align: center;
+            color: #fff;
+            font-weight: 900;
+            cursor: pointer;
+            border: none;
+            box-shadow: 4px 4px 6px rgba(255, 255, 255, 1);
+        }
+        .group:active{
+            box-shadow: 0 0 0 rgba(255, 255, 255, 1);
+            margin-left: 4px;
+            margin-top: 4px;
+        }
+        .back{
+            background-color: #00ff59;
+            position: fixed;
+            box-shadow: 4px 4px 6px #fff;
+        }
+        .developer{
+            margin-top: 70px;
+            background-color: #fff;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            border-bottom-right-radius: 40px;
+            box-shadow: -6px 6px 6px rgba(255, 255, 255, 1);
+        }
+        .developer img{
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            position: absolute;
+            filter: brightness(1.3);
+            border-top: 3px solid rebeccapurple;
+            border-right: 3px solid rebeccapurple;
+            border-bottom-right-radius: 40px;
+        }
+        .developer div{
+            text-decoration: none;
+            color: #a3ff3a;
+            font-weight: 900;
+            margin-left: 110%;
+            margin-top: -5%;
+            width: 100px;
+            font-family: Arial;
+            text-align: center;
+        }
+        .developer div pre{
+            font-family: Arial;
+            color: #00a6ff;
+        }
+        .developer img:hover{
+            filter: brightness(1.5);
+        }
+        @keyframes txt {
+            0%{color: #fff;}
+            25%{color: #fcdf00;}
+            50%{color: #00ff59;}
+            75%{color: #0077ff;}
+            100%{color: #fb01ff;}
+        }
+        .events{
+            text-decoration: none;
+            color: #00ddff;
+            font-family: system-ui;
+            font-size: larger;
+            background: #000dff;
+            position: absolute;
+            right: 0;
+            width: 20%;
+            text-align: center;
+            border-radius: 5px;
+            border: 2px solid #22fc00;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html"><img src="che/home.png" class="back" width="50" height="50"></a>
+    <a class="events" href="events.html">التوجه إلى صفحة الأحداث</a>
+    <div class="developer"><a href="../AKA Games/index.html" target="_blank"><img src="che/logo.png" width="50" height="50"></a><div>VISIT OUR WEBSITE<br><pre>قم بزيارة موقعنا<br>على الانترنت</pre></div></div>
+    <center>
+        <h1 class="groups-text">المجموعات</h1>
+    </center>
+    <div class="groups">
+        <div style="height: 100%;width: 100%;">
+            <form action="GneralReligion.html">
+            <button class="group1 group">
+                <br>
+                :المجموعة الأولى<br><br>
+                أسئلة دينية عامة
+                <br><br>
+            </button>
+            </form>
+            <br><br>
+            <form action="General.html">
+                <button class="group2 group">
+                    <br>
+                    :المجموعة الثانية<br><br>
+                    من القرآن الكريم
+                    <br><br>
+                </button>
+                </form><br><br>
+            <form action="ArabicPlurals.html">
+                <button class="group3 group">
+                    <br>
+                    :المجموعة الثالثة<br><br>
+                    جموع في اللغة العربية
+                    <br><br>
+                </button>
+                </form>
+            </div>
+            <div id="ce" style="position: fixed; left: 45%;top: 35%;width: 100%;text-align: start;height: 100%;">
+                <form action="Animals.html">
+                    <button class="group4 group">
+                        <br>
+                        :المجموعة الرابعة<br><br>
+                        من أسماء الحيوانات
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="Colors.html">
+                    <button class="group5 group">
+                        <br>
+                        :المجموعة الخامسة<br><br>
+                        الألوان
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="Cems.html">
+                    <button class="group6 group">
+                        <br>
+                        :المجموعة السادسة<br><br>
+                        الكيمياء
+                        <br><br>
+                    </button>
+                </form><br><br>
+            </div>
+            <div id="ri" style="position: fixed; left: 90%;top: 35%;width: 100%;text-align: start;height: 100%;">
+                <form action="Maths.html">
+                    <button class="group7 group">
+                        <br>
+                        :المجموعة السابعة<br><br>
+                        الرياضيات
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="Fruit.html">
+                    <button class="group8 group">
+                        <br>
+                        :المجموعة الثامنة<br><br>
+                        الفاكهة في القرآن الكريم
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="GL.html">
+                    <button class="group9 group">
+                        <br>
+                        :المجموعة التاسعة<br><br>
+                        اسئلة دينية عامة ج2
+                        <br><br>
+                    </button>
+                </form><br><br>
+            </div>
+    </div>
+
+    <script>
+        const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            for(let i = 0; i < document.getElementsByClassName('group').length; i++){
+            document.getElementsByClassName('group')[i].style.width = '15%';
+            document.getElementsByClassName('group')[i].style.height = '100px'
+            document.getElementsByClassName('group')[i].style.fontSize = '50%'
+        }
+        document.getElementById('ri').style.marginLeft = '-50px';
+        document.getElementById('ce').style.marginLeft = '-20px';
+        document.getElementsByClassName('groups-text')[0].style.fontSize = '150%';
+    }
+    let i = 0;
+    setInterval(() => {
+        i += 0.5;
+        document.body.style.backgroundPositionX = i + 'px';
+        document.getElementsByClassName('groups')[0].style.backgroundPositionX = i + 'px';
+    }, 15);
+    </script>
+</body>
+</html>

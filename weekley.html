@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - التحدي الأسبوعي</title>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        body{
+            background: linear-gradient(#b700ff, #ff00e1);;
+            user-select: none;
+        }
+        #app{
+            color: #fff;
+            height: 100%;
+        }
+        .event_information{
+            height: 100%;
+        }
+        .info_btn{
+            color: #fff;
+            background: linear-gradient(to right, #865100, #d88100);
+            border: 3px solid #623b00;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px;
+            height: 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            font-size: 100%;
+            filter: brightness(120%);
+        }
+        .info_square{
+            background: #0400ff;
+            width: 35%;
+            height: 200px;
+            font-weight: 900;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: larger;
+            text-shadow: 3px 3px 5px #000;
+            visibility: visible;
+        }
+        .square_text{
+            background: #970000;
+            font-family: serif;
+            font-size: xx-large;
+        }
+        .hided_square{
+            visibility: hidden;
+        }
+        .info_cont{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .start_btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .back_btn{
+            text-decoration: none;
+            display: flex;
+            width: 14%;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+        }
+        .z{
+            z-index: -1;
+        }
+        .bal{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="events.html" class="back_btn info_btn">العودة الى صفحة الاحداث</a>
+        <div class="event_information">
+            <div class="info_text">
+                <button class="info_btn" id="info_btn">قواعد الحدث</button>
+            </div>
+            <center>
+                <div class="info_cont hided_square">
+                    <div class="info_square hided_square">
+                        <div class="square_text">
+                            قواعد الحدث
+                        </div>
+                        <div class="square_content">
+                            هذا الحدث عبارة عن خمسة اسئلة يوم الجمعة من كل أسبوع 
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="start_event">
+            <div class="start_text">
+                <button class="start_btn info_btn" id="start_btn">ابدأ التحدي</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let info_btn = document.getElementById('info_btn');
+        info_btn.addEventListener("click", () => {
+            document.getElementsByClassName('info_square')[0].classList.toggle('hided_square');
+            document.getElementsByClassName('info_cont')[0].classList.toggle('hided_square');
+            document.getElementsByClassName('start_btn')[0].classList.toggle('z');
+        })
+        document.getElementsByClassName('info_cont')[0].addEventListener("click", (e) => {
+            if (e.target !== document.getElementsByClassName('info_square')[0] && e.target !== document.getElementsByClassName('square_content')[0] && e.target !== document.getElementsByClassName('square_text')[0]) {
+                document.getElementsByClassName('info_cont')[0].classList.toggle('hided_square');
+                document.getElementsByClassName('info_square')[0].classList.toggle('hided_square');
+                document.getElementsByClassName('start_btn')[0].classList.toggle('z');
+            }
+            })
+            let start_btn = document.getElementById('start_btn');
+            start_btn.addEventListener("click", () => {
+                open('challenge.html', '_self');
+            })
+            for (let i = 0; i < 25; i++) {
+                            let bal = document.createElement('img');
+                            bal.src = 'che/pink_square.png';
+                            bal.width = 50;
+                            bal.height = 50;
+                            bal.style.opacity = 0.5;
+                            bal.style.zIndex = -1;
+                            bal.style.filter = 'brightness(135%)';
+                            bal.classList.add('bal')
+                            bal.draggable = false;
+                            bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+                            document.body.append(bal);
+                        };
+                        
+                        for (let j = 0; j < 25; j++) {
+                            let img = document.getElementsByClassName('bal')[j];
+                            img.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+                        };
+                        
+                        for (let x = 0; x < 25; x++) {
+                            let tag = document.getElementsByClassName('bal')[x];
+                            let t1 = +tag.style.top.slice(0, 4) || +tag.style.top.slice(0, 3) || +tag.style.top.slice(0, 2) || +tag.style.top.slice(0, 1);
+                            let rot = 0;
+                            setInterval(() => {
+                                rot += 0.3;
+                                t1 -= Math.floor(Math.random() * 2);
+                                tag.style.top = t1 + 'px';
+                                tag.style.rotate = CSS.deg(rot);
+                            }, 15);
+                        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - بدء التحدي</title>
+    <style>
+        *{
+            transition: 0.2s;
+        }
+        html, body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        body{
+            background: #000;
+            user-select: none;
+        }
+        #app{
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+        .back{
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(to right, #865100, #d88100);
+            border: 3px solid #623b00;
+            border-radius: 5px;
+            cursor: pointer;
+            width: auto;
+            height: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 900;
+            font-size: 100%;
+            filter: brightness(120%);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .date{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .date_text{
+            background: #666;
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .date_buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tw_ei{
+            width: 40%;
+            background: linear-gradient(to right, #865100, #d88100);;
+            filter: brightness(130%);
+        }
+        .tw_ei_btn{
+            border: none 0;
+            cursor: pointer;
+            height: 60px;
+            background: linear-gradient(90deg, #000dff,#007bff);
+            color: #fff;
+            padding: 5px;
+            margin: 5px;
+        }
+        .tw_ei_btn:hover{
+            background: linear-gradient(90deg, #0040ff,#0091ff);
+        }
+        .game_container{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#e40b0b, #ff9500);
+        }
+        .hidden{
+            display: none;
+        }
+        .showen{
+            display: block;
+        }
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .title_text{
+            background: linear-gradient(60deg, #0040ff, #00aeff);
+            color: #fff;
+            font-family: system-ui;
+            font-weight: 600;
+            font-size: 130%;
+            border: 3px solid #ff9100;
+            width: 20%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+            height: 70%;
+            transform: translateY(10%);
+            background: linear-gradient(90deg, #14ad00, #00924e);
+            width: 80%;
+            border: 2px solid #fff;
+        }
+        .question{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+        }
+        .question_text{
+            background: linear-gradient(#000, #333);
+            color: #fff;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            border: 3px solid #00f7ff;
+            font-size: xx-large;
+            font-family: system-ui;
+            text-shadow: 2px 2px 5px #fff;
+        }
+        .answers{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+        }
+        .answer{
+            height: 75%;
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .choice{
+            border: 0 none;
+            background: linear-gradient(#b700ff, #ff00e1);
+            color: #fff;
+            margin: 5px;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border: 2px solid #2600ff;
+            font-family: system-ui;
+            font-weight: 600;
+        }
+        .choice:hover{
+            filter: brightness(120%);
+        }
+        #game_app{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .close_btn{
+            border: 0 none;
+            background: rgb(0, 225, 255);
+            color: #000;
+            font-family: system-ui;
+            cursor: pointer;
+            font-weight: 800;
+            padding: 7px;
+            position: absolute;
+            border: 2px solid #fff;
+        }
+        .disabled{
+            pointer-events: none;
+            background: linear-gradient(#333, #555);
+        }
+        .cof_wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.4);
+            top: 0;
+        }
+        .cof{
+            background: #0022ff;
+            width: 40%;
+            height: 40%;
+            text-align: center;
+            color: #1eff00;
+            font-family: system-ui;
+            font-weight: 800;
+            font-size: 150%;
+            border: 3px solid #fff;
+        }
+        .cof_btn{
+            border: 2px solid lightseagreen;
+            background: lime;
+            font-weight: 800;
+            font-family: system-ui;
+            padding: 10px;
+            cursor: pointer;
+            transform: translateY(250%);
+        }
+        .score_wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+        .score_text{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(#0015fc, #00a4fc);
+            width: 100%;
+            height: 30%;
+            border-radius: 10px;
+            border: 3px solid #fff;
+            transform: translateY(-15%);
+            font-size: xx-large;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .line{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .__line__{
+            background: #ff9100;
+            width: 5px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: system-ui;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="showen">
+        <a class="back" href="weekley.html">العودة إلى صفحة التحدي الأسبوعي</a>
+        <div class="date">
+            <div class="date_text">
+                <div class="month">
+                    شهر 6 سنة 2024
+                </div>
+            </div>
+        </div>
+        <div class="date_buttons">
+            <div class="tw_ei">
+                <button class="tw_ei_btn disabled">
+                    28 بدء التحدي
+                </button>
+                <button class="tw_ei_btn disabled">
+                    29 بدء التحدي
+                </button>
+                <button class="tw_ei_btn disabled">
+                    30 بدء التحدي
+                </button>
+            </div>
+        </div>
+        <div class="date">
+            <div class="date_text">
+                <div class="month">
+                    شهر 7 سنة 2024
+                </div>
+            </div>
+        </div>
+        <div class="date_buttons">
+            <div class="tw_ei">
+                
+            </div>
+        </div>
+    </div>
+    <div class="game_container_28_6 hidden game_container">
+        <div class="close_game">
+            <div class="close_text">
+                <button class="close_btn">إغلاق التحدي</button>
+            </div>
+        </div>
+        <div class="line">
+            <div class="out_line">
+                <div class="__line__">
+                الجمعة
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <div class="title_text">
+                28/6/2024
+            </div>
+        </div>
+        <div id="game_app">
+            <div class="wrapper">
+                <div class="question">
+                    <div class="question_text">
+                        1-من أي دولة أنت
+                    </div>
+                </div>
+                <div class="answers">
+                    <div class="answer1 answer tp">
+                        <button class="choice1 choice">مصر</button>
+                    </div>
+                    <div class="answer2 answer tp">
+                        <button class="choice2 choice">فلسطين</button>
+                    </div>
+                    <div class="answer3 answer btm">
+                        <button class="choice3 choice">العراق</button>
+                    </div>
+                    <div class="answer4 answer btm">
+                        <button class="choice4 choice">سوريا</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cof_wrapper" style="display: none;">
+                <div class="cof">
+                    <div class="cof_text">
+                        إجابة صحيحة
+                    </div>
+                    <div class="cof_btn_cont">
+                        <button class="cof_btn">
+                            التالي
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="score_wrapper" style="display: none;">
+                <div class="score_text">
+                    <div>النتيجة: 0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        for (let j = 1; j < 31; j++) {
+            const element = document.createElement('button');
+            element.classList.add('tw_ei_btn');
+            element.classList.add('disabled');
+            if(j == 3 && new Date().getDate() >= j || j == 12 && new Date().getDate() == j || j == 19 && new Date().getDate() == j || j == 26 && new Date().getDate() == j){
+                element.classList.remove('disabled');
+            }
+                element.innerHTML = `بدء التحدي ${j}`;
+                document.getElementsByClassName('tw_ei')[1].append(element);
+                element.addEventListener("click", () => {
+                    game();
+                })
+            }
+        function game(){
+            let app = document.getElementById('app')
+            let game_container_28_6 = document.getElementsByClassName('game_container_28_6')[0];
+            app.classList.replace('showen', 'hidden');
+            game_container_28_6.classList.replace('hidden', 'showen');
+            let close_btn = document.getElementsByClassName('close_btn')[0];
+            let cof_btn = document.getElementsByClassName('cof_btn')[0];
+            let cof_text = document.getElementsByClassName('cof_text')[0];
+            let cof_wrapper = document.getElementsByClassName('cof_wrapper')[0];
+            let correct = 0;
+            let incorrect = 0;
+            close_btn.addEventListener("click", () => {
+                location.reload();
+            })
+                    let question_text = document.getElementsByClassName('question_text')[0];
+                    let choice1 = document.getElementsByClassName('choice1')[0];
+                    let choice2 = document.getElementsByClassName('choice2')[0];
+                    let choice3 = document.getElementsByClassName('choice3')[0];
+                    let choice4 = document.getElementsByClassName('choice4')[0];
+                    let i = -1;
+                    let wrapper = document.getElementsByClassName('wrapper')[0];
+                    let score_wrapper = document.getElementsByClassName('score_wrapper')[0];
+                    let score_text = document.getElementsByClassName('score_text')[0].getElementsByTagName('div')[0];
+                    const questions = [
+                        {
+                            question: "يوم فيه تقوم الساعة",
+                            choice1: "الجمعة",
+                            choice2: "السبت",
+                            choice3: "الأحد",
+                            choice4: "الإثنين",
+                            true: choice1,
+                            false1: choice2,
+                            false2: choice3,
+                            false3: choice4,
+                        },
+                        {
+                            question: "كم عدد قلوب الاخطبوط",
+                            choice1: "1",
+                            choice2: "2",
+                            choice3: "3",
+                            choice4: "4",
+                            true: choice3,
+                            false1: choice1,
+                            false2: choice2,
+                            false3: choice4,
+                        },
+                        {
+                            question: "من هو فرعون هذه الامة",
+                            choice1: "ابو جهل",
+                            choice2: "ابو لهب",
+                            choice3: "عتبة بن ربيعة",
+                            choice4: "أمية بن خلف",
+                            true: choice1,
+                            false1: choice2,
+                            false2: choice3,
+                            false3: choice4,
+                        },
+                        {
+                            question: "ما هي الحاسة الأقوى في النسور",
+                            choice1: "السمع",
+                            choice2: "الشم",
+                            choice3: "اللمس",
+                            choice4: "البصر",
+                            true: choice4,
+                            false1: choice1,
+                            false2: choice2,
+                            false3: choice3,
+                        },
+                        {
+                            question: "ما هوالكائن الحي الذي قلبه في رأسه",
+                            choice1: "الشمبانزي",
+                            choice2: "الجمبري",
+                            choice3: "البومة",
+                            choice4: "الذبابة",
+                            true: choice2,
+                            false1: choice1,
+                            false2: choice3,
+                            false3: choice4,
+                        },
+                    ]
+                    if(i <= 3){
+                        i++;
+                        question_text.innerHTML = questions[i].question;
+                        choice1.innerHTML = questions[i].choice1;
+                        choice2.innerHTML = questions[i].choice2;
+                        choice3.innerHTML = questions[i].choice3;
+                        choice4.innerHTML = questions[i].choice4;
+                        document.addEventListener("click", (e) => {
+                            if(e.target.innerHTML === questions[i].true.innerHTML){
+                                cof_wrapper.style.display = '';
+                                cof_text.innerHTML = 'إجابة صحيحة';
+                                correct++;
+                            }else if(e.target === questions[i].false1 || e.target === questions[i].false2 || e.target === questions[i].false3){
+                                cof_wrapper.style.display = '';
+                                cof_text.innerHTML = `إجابة خاطئة<br>الإجابة الصحيحة: ${questions[i].true.innerHTML}`;
+                                incorrect++;
+                            }
+                        })
+                    }
+                    cof_btn.addEventListener("click", () => {
+                        cof_wrapper.style.display = 'none';
+                        if(i <= 3){
+                            i++;
+                        question_text.innerHTML = questions[i].question;
+                        choice1.innerHTML = questions[i].choice1;
+                        choice2.innerHTML = questions[i].choice2;
+                        choice3.innerHTML = questions[i].choice3;
+                        choice4.innerHTML = questions[i].choice4;
+                        };
+                        if(i == 4){
+                                cof_btn.innerHTML = 'تأكيد';
+                                cof_btn.addEventListener("click", () => {
+                                    wrapper.classList.add('hidden');
+                                    score_wrapper.style.display = 'flex';
+                                    score_text.innerHTML = `النتيجة: ${correct} / ${correct + incorrect}`;
+                                })
+                            };
+                        });
+            }
+    </script>
+</body>
+</html>

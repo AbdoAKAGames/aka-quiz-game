@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>الفاكهة في القرآن الكريم</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <style>
+            html,body{
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+            }
+            .img{
+                width: 10%;
+                box-shadow: 4px 4px 6px #000;
+            }
+            .imgin{
+                width: 80%;
+                box-shadow: 4px 4px 6px #000;
+            }
+            .imgin2{
+                width: 10%;
+                box-shadow: 4px 4px 6px #000;
+                height: 10%;
+            }
+            body{
+                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(che/fruits.png);
+            }
+        </style>
+    </head>
+    <body>
+            <a href="game.html" class="back" ><img src="che/home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+    <div class="game">
+    <div class="text">
+    <h1 class="Question">:السؤال الأول<br>ما هو الطلح</h1>
+    </div>
+    <div class="buttons">
+    <button type="button" id="button1" style="background: transparent;border: none;"><img class="imgin" src="che/po.png" draggable="false"></button><br><br><br>
+    <button type="button" id="button2" style="background: transparent;border: none;"><img class="imgin" src="che/ba.png" draggable="false"></button><br><br><br>
+    <button type="button" id="button3" style="background: transparent;border: none;"><img class="imgin" src="che/pa.png" draggable="false"></button><br>
+    <input type="button" value="التالي" id="next">
+</div>
+    </div>
+        
+    <script type="text/javascript">
+        let Question = document.getElementsByClassName('Question')[0];
+        let button1 = document.getElementById('button1');
+        let button2 = document.getElementById('button2');
+        let button3 = document.getElementById('button3');
+        let total = 15;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let quesNumber = 1;
+        let ans;
+        let bg = 'linear-gradient(#0000ff, #00ffff)';
+        let disbg = 'linear-gradient(#666, #555)';
+        let next = document.getElementById('next');
+
+        window.addEventListener("load", e => {
+            document.getElementsByClassName('buttons')[0].style.height = '65%';
+            button1.click();
+        })
+        
+
+        document.addEventListener("click", function evl() {
+            if(quesNumber === 1){
+            button1.onclick = () => {
+                ans = '<img class="imgin" src="che/po.png" draggable="false">';
+            }
+            button2.onclick = () => {
+                ans = '<img class="imgin" src="che/ba.png" draggable="false">';
+            }
+            button3.onclick = () => {
+                ans = '<img class="imgin" src="che/pa.png" draggable="false">';
+            }
+        }
+        if(quesNumber === 1 && ans === '<img class="imgin" src="che/ba.png" draggable="false">'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 2;
+                button1.style.background = 'transparent';
+                button2.style.background = 'transparent';
+                button3.style.background = 'transparent';
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 1 && ans === '<img class="imgin" src="che/po.png" draggable="false">' || quesNumber === 1 && ans === '<img class="imgin" src="che/pa.png" draggable="false">'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 2;
+                button1.style.background = 'transparent';
+                button2.style.background = 'transparent';
+                button3.style.background = 'transparent';
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+            if(quesNumber === 2){
+            document.getElementsByClassName('imgin')[0].src = 'che/bu.png';
+            document.getElementsByClassName('imgin')[1].src = 'che/gr.png';
+            document.getElementsByClassName('imgin')[2].src = 'che/fi.png';
+            Question.innerHTML = `:السؤال الثاني<br>ما هو السدر`;
+            button1.onclick = () => {
+                ans = '<img class="imgin" src="che/bu.png" draggable="false">';
+            }
+            button2.onclick = () => {
+                ans = '<img class="imgin" src="che/gr.png" draggable="false">';
+            }
+            button3.onclick = () => {
+                ans = '<img class="imgin" src="che/fi.png" draggable="false">';
+            }
+        }
+        if(quesNumber === 2 && ans === '<img class="imgin" src="che/bu.png" draggable="false">'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 3;
+                button1.style.background = 'transparent';
+                button2.style.background = 'transparent';
+                button3.style.background = 'transparent';
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 2 && ans === '<img class="imgin" src="che/gr.png" draggable="false">' || quesNumber === 2 && ans === '<img class="imgin" src="che/fi.png" draggable="false">'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 3;
+                button1.style.background = 'transparent';
+                button2.style.background = 'transparent';
+                button3.style.background = 'transparent';
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 3){
+            button1.style.background = bg;
+            button2.style.background = bg;
+            button3.style.background = bg;
+            button1.style.border = '3px solid #b800be';
+            button2.style.border = '3px solid #b800be';
+            button3.style.border = '3px solid #b800be';
+            document.getElementsByClassName('buttons')[0].style.height = '35%';
+            button1.innerHTML = 'المؤمنون';
+            button2.innerHTML = 'مريم';
+            button3.innerHTML = 'طه';
+            Question.innerHTML = `:السؤال الثالث<br>في أي السور التالية ذُكِرَ الزيتون`;
+            button1.onclick = () => {
+                ans = 'المؤمنون';
+            }
+            button2.onclick = () => {
+                ans = 'مريم';
+            }
+            button3.onclick = () => {
+                ans = 'طه';
+            }
+        }
+        if(quesNumber === 3 && ans === 'المؤمنون'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 4;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 3 && ans === 'مريم' || quesNumber === 3 && ans === 'طه'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 4;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 4){
+            button1.innerHTML = 'النساء';
+            button2.innerHTML = 'المائدة';
+            button3.innerHTML = 'الأنعام';
+            Question.innerHTML = `:السؤال الرابع<br>في أي السور التالية ذُكِرَ العنب`;
+            button1.onclick = () => {
+                ans = 'النساء';
+            }
+            button2.onclick = () => {
+                ans = 'المائدة';
+            }
+            button3.onclick = () => {
+                ans = 'الأنعام';
+            }
+        }
+        if(quesNumber === 4 && ans === 'الأنعام'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 5;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 4 && ans === 'النساء' || quesNumber === 4 && ans === 'المائدة'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 5;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 5){
+            button1.innerHTML = 'الفرقان';
+            button2.innerHTML = 'النحل';
+            button3.innerHTML = 'البقرة';
+            Question.innerHTML = `:السؤال الخامس<br>في أي السور التالية ذُكِرَ النخيل`;
+            button1.onclick = () => {
+                ans = 'الفرقان';
+            }
+            button2.onclick = () => {
+                ans = 'النحل';
+            }
+            button3.onclick = () => {
+                ans = 'البقرة';
+            }
+        }
+        if(quesNumber === 5 && ans === 'النحل'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 6;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 5 && ans === 'الفرقان' || quesNumber === 5 && ans === 'البقرة'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 6;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 6){
+            button1.innerHTML = 'الرحمن';
+            button2.innerHTML = 'الذاريات';
+            button3.innerHTML = 'الواقعة';
+            Question.innerHTML = `:السؤال السادس<br>في أي السور التالية ذُكِرَ الطلح`;
+            button1.onclick = () => {
+                ans = 'الرحمن';
+            }
+            button2.onclick = () => {
+                ans = 'الذاريات';
+            }
+            button3.onclick = () => {
+                ans = 'الواقعة';
+            }
+        }
+        if(quesNumber === 6 && ans === 'الواقعة'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 7;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 6 && ans === 'الرحمن' || quesNumber === 6 && ans === 'الذاريات'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 7;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 7){
+            button1.innerHTML = 'الواقعه';
+            button2.innerHTML = 'ق';
+            button3.innerHTML = 'الحديد';
+            Question.innerHTML = `:السؤال السابع<br>في أي السور التالية ذُكِرَ السدر`;
+            button1.onclick = () => {
+                ans = 'الواقعه';
+            }
+            button2.onclick = () => {
+                ans = 'ق';
+            }
+            button3.onclick = () => {
+                ans = 'الحديد';
+            }
+        }
+        if(quesNumber === 7 && ans === 'الواقعه'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 8;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 7 && ans === 'ق' || quesNumber === 7 && ans === 'الحديد'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 8;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 8){
+            button1.innerHTML = 'الأعراف';
+            button2.innerHTML = 'الأنفال';
+            button3.innerHTML = 'الأنعام';
+            Question.innerHTML = `:السؤال الثامن<br>في أي السور التالية ذُكِرَ الرمان`;
+            button1.onclick = () => {
+                ans = 'الأعراف';
+            }
+            button2.onclick = () => {
+                ans = 'الأنفال';
+            }
+            button3.onclick = () => {
+                ans = 'الأنعام';
+            }
+        }
+        if(quesNumber === 8 && ans === 'الأنعام'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 9;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 8 && ans === 'الأعراف' || quesNumber === 8 && ans === 'الأنفال'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 9;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 9){
+            button1.innerHTML = 'محمد';
+            button2.innerHTML = 'الرعد';
+            button3.innerHTML = 'مريم';
+            Question.innerHTML = `:السؤال التاسع<br>في أي السور التالية ذُكِرَ التمر`;
+            button1.onclick = () => {
+                ans = 'محمد';
+            }
+            button2.onclick = () => {
+                ans = 'الرعد';
+            }
+            button3.onclick = () => {
+                ans = 'مريم';
+            }
+        }
+        if(quesNumber === 9 && ans === 'مريم'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 10;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 9 && ans === 'محمد' || quesNumber === 9 && ans === 'الرعد'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 10;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 10){
+            button1.innerHTML = 'الكهف';
+            button2.innerHTML = 'الأنعام';
+            button3.innerHTML = 'هود';
+            Question.innerHTML = `:السؤال العاشر<br>في أي السور التالية ذُكِرَ الزيتون`;
+            button1.onclick = () => {
+                ans = 'الكهف';
+            }
+            button2.onclick = () => {
+                ans = 'الأنعام';
+            }
+            button3.onclick = () => {
+                ans = 'هود';
+            }
+        }
+        if(quesNumber === 10 && ans === 'الأنعام'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 11;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 10 && ans === 'الكهف' || quesNumber === 10 && ans === 'هود'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 11;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 11){
+            button1.innerHTML = 'الإسراء';
+            button2.innerHTML = 'يونس';
+            button3.innerHTML = 'إبراهيم';
+            Question.innerHTML = `:السؤال الحادي عشر<br>في أي السور التالية ذُكِرَ العنب`;
+            button1.onclick = () => {
+                ans = 'الإسراء';
+            }
+            button2.onclick = () => {
+                ans = 'يونس';
+            }
+            button3.onclick = () => {
+                ans = 'إبراهيم';
+            }
+        }
+        if(quesNumber === 11 && ans === 'الإسراء'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 12;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 11 && ans === 'يونس' || quesNumber === 11 && ans === 'إبراهيم'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 12;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 12){
+            button1.innerHTML = 'فاطر';
+            button2.innerHTML = 'يس';
+            button3.innerHTML = 'الصافات';
+            Question.innerHTML = `:السؤال الثاني عشر<br>في أي السور التالية ذُكِرَ اليقطين`;
+            button1.onclick = () => {
+                ans = 'فاطر';
+            }
+            button2.onclick = () => {
+                ans = 'يس';
+            }
+            button3.onclick = () => {
+                ans = 'الصافات';
+            }
+        }
+        if(quesNumber === 12 && ans === 'الصافات'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 13;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 12 && ans === 'يس' || quesNumber === 12 && ans === 'فاطر'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 13;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 13){
+            button1.innerHTML = 'الحجر';
+            button2.innerHTML = 'النحل';
+            button3.innerHTML = 'الرحمن';
+            Question.innerHTML = `:السؤال الثالث عشر<br>في أي السور التالية ذُكِرَ الرمان`;
+            button1.onclick = () => {
+                ans = 'الحجر';
+            }
+            button2.onclick = () => {
+                ans = 'النحل';
+            }
+            button3.onclick = () => {
+                ans = 'الرحمن';
+            }
+        }
+        if(quesNumber === 13 && ans === 'الرحمن'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 14;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 13 && ans === 'الحجر' || quesNumber === 13 && ans === 'النحل'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 14;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 14){
+            button1.innerHTML = 'الفرقان';
+            button2.innerHTML = 'النور';
+            button3.innerHTML = 'الأحقاف';
+            Question.innerHTML = `:السؤال الرابع عشر<br>في أي السور التالية ذُكِرَ الزيتون`;
+            button1.onclick = () => {
+                ans = 'الفرقان';
+            }
+            button2.onclick = () => {
+                ans = 'النور';
+            }
+            button3.onclick = () => {
+                ans = 'الأحقاف';
+            }
+        }
+        if(quesNumber === 14 && ans === 'النور'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 15;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+                next.value = 'انهاء';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 14 && ans === 'الفرقان' || quesNumber === 14 && ans === 'الأحقاف'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 15;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+                next.value = 'انهاء';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 15){
+            button1.innerHTML = 'ق';
+            button2.innerHTML = 'ص';
+            button3.innerHTML = 'الفتح';
+            Question.innerHTML = `:السؤال الخامس عشر<br>في أي السور التالية ذُكِرَ النخيل`;
+            button1.onclick = () => {
+                ans = 'ق';
+            }
+            button2.onclick = () => {
+                ans = 'ص';
+            }
+            button3.onclick = () => {
+                ans = 'الفتح';
+            }
+        }
+        if(quesNumber === 15 && ans === 'ق'){
+            correctAnswers++;
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 0;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.remove();
+            })
+        }else if(quesNumber === 15 && ans === 'ص' || quesNumber === 15 && ans === 'الفتح'){
+            incorrectAnswers++;
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 0;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.remove();
+            })
+        }
+        if(quesNumber === 0){
+    document.removeEventListener('click', evl);
+    button1.remove();
+    button2.remove();
+    button3.remove();
+    const img = new Image(50, 50);
+    for (let i = 0; i < 150; i++) {
+        let bal = document.createElement('img');
+        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+        bal.width = 10;
+        bal.height = 10;
+        bal.classList.add('bal')
+        bal.draggable = false;
+        bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        document.body.append(bal);
+    };
+    
+    for (let j = 0; j < 150; j++) {
+        let img = document.getElementsByClassName('bal')[j];
+        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+    };
+    
+    for (let x = 0; x < 150; x++) {
+        let tag = document.getElementsByClassName('bal')[x];
+        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+        setInterval(() => {
+            t1 -= Math.floor(Math.random() * 3);
+            tag.style.bottom = t1 + 'px';
+        }, 15);
+    };
+    Question.innerHTML = ``;
+    if(correctAnswers >= 0 && correctAnswers <= 6){
+        Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
+        img.src = 'che/blue.png'
+        img.className = 'blue';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('blue')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 7 && correctAnswers <= 10){
+        Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
+        img.src = 'che/bronze.png'
+        img.className = 'bronze';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('bronze')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 11 && correctAnswers <= 14){
+        Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
+        img.src = 'che/silver.png'
+        img.className = 'silver';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('silver')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers == 15){
+        Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
+        img.src = 'che/gold.png'
+        img.className = 'gold';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('gold')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }
+}
+        });
+        const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            button1.style.fontSize = '150%';
+            button2.style.fontSize = '150%';
+            button3.style.fontSize = '150%';
+            button1.style.height = '50px';
+            button2.style.height = '50px';
+            button3.style.height = '50px';
+        }
+
+        document.addEventListener('keyup', e => {
+            if(e.key === 'Enter') next.click();
+        })
+        window.addEventListener("blur", () => {
+            document.body.innerHTML = `<button id="re" onclick="location.reload();">إعادة المحاولة</button><style>#re{border:none;background:linear-gradient(#000, #111, #222, #333, #444, #555);color:#0cad1f;font-weight:900;height:10%;width:10%;font-size:100%;cursor:pointer;box-shadow:4px 4px 8px #fff;filter:brightness(200%);}#re:active{box-shadow:0px 0px 0px #fff;margin-top:4px;margin-left:4px;}</style>`;
+            alert('لا تفتح أي مواقع أخرى أثناء المرحلة');
+        })
+
+    </script>
+    </body>
+    </html>

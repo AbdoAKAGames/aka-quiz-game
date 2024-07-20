@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Game</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <style>
+        html, body{
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            user-select: none;
+        }
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+            background: linear-gradient(to right, #fcb100, #ffe100);
+            cursor: pointer;
+            width: 20%;
+            padding: 15px;
+            border-radius: 5px;
+            color: #000;
+            box-shadow: 0px 0px 8px #fff;
+            font-size: 100%;
+            font-weight: 800;
+        }
+        button:hover{
+            filter: brightness(110%);
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            animation: container 3s linear 0s infinite alternate;
+            background: linear-gradient(#00f7ff, #0097fc, #2a00fc);
+        }
+        .name{
+            color: #fff;
+            text-shadow: 8px 8px 8px #000;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #by{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-shadow: 8px 8px 8px #000000;
+        }
+        .icon{
+            box-shadow: rgba(0,0,0,0.8) 0px 0px 30px;
+            border-radius: 20px;
+            background-color: #f2ff00;
+            animation: icon 3s linear 0s infinite alternate;
+        }
+        @keyframes icon {
+            0%{filter: hue-rotate(0deg);}
+            25%{filter: hue-rotate(90deg);}
+            50%{filter: hue-rotate(180deg);}
+            75%{filter: hue-rotate(270deg);}
+            100%{filter: hue-rotate(360deg);}
+        }
+        .comp_name, .word{
+            display: flex;
+            justify-content: center;
+        }
+        .comp_name{
+            animation: cname 2s linear 0s forwards alternate;
+            opacity: 0;
+        }
+        .word{
+            animation: word 2s linear 2s forwards alternate;
+            opacity: 0;
+        }
+        .first{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: #fff;
+            font-family: system-ui;
+            animation: first 2s linear 5.8s forwards alternate;
+        }
+        .container1{
+            background: linear-gradient(blue, yellowgreen, green, yellow);
+            padding: 20px;
+            animation: container1 2s linear 4s forwards alternate;
+            font-size: 72px;
+        }
+        @keyframes cname {
+            from{color: #fff;opacity: 0;}
+            to{color: #f00;opacity: 1;}
+        }
+        @keyframes word {
+            from{color: #fff;opacity: 0;}
+            to{color: #00fc65;opacity: 1;}
+        }
+        @keyframes container1 {
+            from{padding: 20px;font-size: 72px;opacity: 1;}
+            to{padding: 150px;font-size: 120px;opacity: 0;}
+        }
+        @keyframes first {
+            from{opacity: 1;}
+            to{opacity: 0;}
+        }
+        .second{
+            width: 0;
+            height: 0;
+            color: #fff;
+            font-family: system-ui;
+            animation: second 2s linear 7.8s forwards alternate;
+            font-size: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .all{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: all 2s linear 11.8s forwards alternate;
+            background: #000;
+        }
+        @keyframes second {
+            from{opacity: 0;width: 0;height: 0;font-size: 0;}
+            to{opacity: 1;width: 100%;height: 100%;font-size: 90px;}
+        }
+        @keyframes all {
+            from{opacity: 1;width: 100%;height: 100%;font-size: 90px;}
+            to{opacity: 0;width: 0;height: 0;font-size: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div class="container1">
+            <div class="comp_name">
+                <div class="comp_text">
+                    AKA GAMES
+                </div>
+            </div>
+            <div class="word_container">
+                <div class="word">
+                    PRESENTS
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="second">
+        <div class="all">
+        <div class="container2">
+            <div class="game_name">
+                <div class="game_text">
+                    QUIZ GAME
+                </div>
+            </div>
+       </div>
+    </div>
+    </div>
+
+    <center style="display: none;" id="game">
+        <form action="game.html">
+            <div class="container">
+                <img src="icon.png" class="icon" draggable="false">
+                <br>
+                <h1 class="name">Quiz Game</h1>
+                <button id="start">ابدأ اللعب</button>
+                <h1 id="by">من عمل/عبد الرحمن محمد محرم
+                </h1>
+            </div>
+        </form>
+    </center>
+    <script>
+        function StartGame(){
+            document.getElementById('game').style.display = 'block';
+            document.getElementById('game').style.position = 'absolute';
+            document.getElementById('game').style.top = 0;
+            document.getElementById('game').style.width = '100%';
+            document.getElementById('game').style.height = '100%';
+        }
+        setTimeout(StartGame, 14400);
+    </script>
+</body>
+</html>

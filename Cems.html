@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>الكيمياء</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <style>
+            html,body{
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+            }
+            .img{
+                width: 10%;
+                box-shadow: 4px 4px 6px #fff;
+            }
+            body{
+                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(che/chemistry.png);
+            }
+        </style>
+    </head>
+    <body>
+            <a href="game.html" class="back" ><img src="che/home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+    <div class="game">
+    <div class="text">
+    <h1 class="Question">:السؤال الأول<br><img class="img" src="che/c1.png" draggable="false"><br>هذا العنصر هو</h1>
+    </div>
+    <div class="buttons">
+    <input type="button" id="button1" value="كالسيوم"><br><br><br>
+    <input type="button" id="button2" value="كروم"><br><br><br>
+    <input type="button" id="button3" value="كربون"><br>
+    <input type="button" value="التالي" id="next">
+    </div>
+    </div>
+        
+    <script type="text/javascript">
+        let Question = document.getElementsByClassName('Question')[0];
+        let button1 = document.getElementById('button1');
+        let button2 = document.getElementById('button2');
+        let button3 = document.getElementById('button3');
+        let total = 15;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let quesNumber = 1;
+        let ans;
+
+        let bg = 'linear-gradient(#0000ff, #00ffff)';
+        let disbg = 'linear-gradient(#666, #555)';
+        let next = document.getElementById('next');
+
+        window.addEventListener("load", e => {
+            button1.click();
+        })
+            
+        document.addEventListener("click", function evl(){
+            if(quesNumber === 1){
+            button1.onclick = () => {
+                ans = 'كالسيوم';
+            }
+            button2.onclick = () => {
+                ans = 'كروم';
+            }
+            button3.onclick = () => {
+                ans = 'كربون';
+            }
+        }
+        if(quesNumber === 1 && ans === 'كربون'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 2;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 1 && ans === 'كالسيوم' || quesNumber === 1 && ans === 'كروم'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 2;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+            if(quesNumber === 2){
+            button1.value = 'كبريت';
+            button2.value = 'سيليكون';
+            button3.value = 'زئبق';
+            Question.innerHTML = `:السؤال الثاني<br><img class="img" src="che/s2.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'كبريت';
+            }
+            button2.onclick = () => {
+                ans = 'سيليكون';
+            }
+            button3.onclick = () => {
+                ans = 'زئبق';
+            }
+        }
+        if(quesNumber === 2 && ans === 'كبريت'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 3;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 2 && ans === 'زئبق' || quesNumber === 2 && ans === 'سيليكون'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 3;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 3){
+            button1.value = 'كالسيوم';
+            button2.value = 'بوتاسيوم';
+            button3.value = 'كروم';
+            Question.innerHTML = `:السؤال الثالث<br><img class="img" src="che/k3.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'كالسيوم';
+            }
+            button2.onclick = () => {
+                ans = 'بوتاسيوم';
+            }
+            button3.onclick = () => {
+                ans = 'كروم';
+            }
+        }
+        if(quesNumber === 3 && ans === 'بوتاسيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 4;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 3 && ans === 'كالسيوم' || quesNumber === 3 && ans === 'كروم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 4;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 4){
+            button1.value = 'فلور';
+            button2.value = 'فسفور';
+            button3.value = 'حديد';
+            Question.innerHTML = `:السؤال الرابع<br><img class="img" src="che/fe4.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'فلور';
+            }
+            button2.onclick = () => {
+                ans = 'فسفور';
+            }
+            button3.onclick = () => {
+                ans = 'حديد';
+            }
+        }
+        if(quesNumber === 4 && ans === 'حديد'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 5;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 4 && ans === 'فلور' || quesNumber === 4 && ans === 'فسفور'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 5;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 5){
+            button1.value = 'ارجون';
+            button2.value = 'فضة';
+            button3.value = 'الومنيوم';
+            Question.innerHTML = `:السؤال الخامس<br><img class="img" src="che/ag5.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'ارجون';
+            }
+            button2.onclick = () => {
+                ans = 'فضة';
+            }
+            button3.onclick = () => {
+                ans = 'الومنيوم';
+            }
+        }
+        if(quesNumber === 5 && ans === 'فضة'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 6;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 5 && ans === 'ارجون' || quesNumber === 5 && ans === 'الومنيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 6;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 6){
+            button1.value = 'سكانديوم';
+            button2.value = 'سيزيوم';
+            button3.value = 'قصدير';
+            Question.innerHTML = `:السؤال السادس<br><img class="img" src="che/sn6.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'سكانديوم';
+            }
+            button2.onclick = () => {
+                ans = 'سيزيوم';
+            }
+            button3.onclick = () => {
+                ans = 'قصدير';
+            }
+        }
+        if(quesNumber === 6 && ans === 'قصدير'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 7;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 6 && ans === 'سكانديوم' || quesNumber === 6 && ans === 'سيزيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'red';
+            button3.style.background = 'yellowgreen';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 7;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 7){
+            button1.value = 'كريبتون';
+            button2.value = 'كربون';
+            button3.value = 'كروم';
+            Question.innerHTML = `:السؤال السابع<br><img class="img" src="che/kr7.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'كريبتون';
+            }
+            button2.onclick = () => {
+                ans = 'كربون';
+            }
+            button3.onclick = () => {
+                ans = 'كروم';
+            }
+        }
+        if(quesNumber === 7 && ans === 'كريبتون'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 8;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 7 && ans === 'كربون' || quesNumber === 7 && ans === 'كروم'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 8;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 8){
+            button1.value = 'سيزيوم';
+            button2.value = 'ثوريوم';
+            button3.value = 'سيليكون';
+            Question.innerHTML = `:السؤال الثامن<br><img class="img" src="che/th8.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'سيزيوم';
+            }
+            button2.onclick = () => {
+                ans = 'ثوريوم';
+            }
+            button3.onclick = () => {
+                ans = 'سيليكون';
+            }
+        }
+        if(quesNumber === 8 && ans === 'ثوريوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 9;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 8 && ans === 'سيزيوم' || quesNumber === 8 && ans === 'سيليكون'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 9;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 9){
+            button1.value = 'بروم';
+            button2.value = 'رصاص';
+            button3.value = 'بريليوم';
+            Question.innerHTML = `:السؤال التاسع<br><img class="img" src="che/pb9.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'بروم';
+            }
+            button2.onclick = () => {
+                ans = 'رصاص';
+            }
+            button3.onclick = () => {
+                ans = 'بريليوم';
+            }
+        }
+        if(quesNumber === 9 && ans === 'رصاص'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 10;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 9 && ans === 'بروم' || quesNumber === 9 && ans === 'بريليوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 10;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 10){
+            button1.value = 'الومنيوم';
+            button2.value = 'يورانيوم';
+            button3.value = 'يود';
+            Question.innerHTML = `:السؤال العاشر<br><img class="img" src="che/u10.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'الومنيوم';
+            }
+            button2.onclick = () => {
+                ans = 'يورانيوم';
+            }
+            button3.onclick = () => {
+                ans = 'يود';
+            }
+        }
+        if(quesNumber === 10 && ans === 'يورانيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 11;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 10 && ans === 'الومنيوم' || quesNumber === 10 && ans === 'يود'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 11;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 11){
+            button1.value = 'رادون';
+            button2.value = 'راديوم';
+            button3.value = 'روبيديوم';
+            Question.innerHTML = `:السؤال الحادي عشر<br><img class="img" src="che/ra11.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'رادون';
+            }
+            button2.onclick = () => {
+                ans = 'راديوم';
+            }
+            button3.onclick = () => {
+                ans = 'روبيديوم';
+            }
+        }
+        if(quesNumber === 11 && ans === 'راديوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 12;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 11 && ans === 'رادون' || quesNumber === 11 && ans === 'روبيديوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 12;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 12){
+            button1.value = 'بروم';
+            button2.value = 'بوتاسيوم';
+            button3.value = 'زئبق';
+            Question.innerHTML = `:السؤال الثاني عشر<br><img class="img" src="che/br12.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'بروم';
+            }
+            button2.onclick = () => {
+                ans = 'بوتاسيوم';
+            }
+            button3.onclick = () => {
+                ans = 'زئبق';
+            }
+        }
+        if(quesNumber === 12 && ans === 'بروم'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 13;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 12 && ans === 'بوتاسيوم' || quesNumber === 12 && ans === 'زئبق'){
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 13;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 13){
+            button1.value = 'بروم';
+            button2.value = 'بروميثيوم';
+            button3.value = 'بريليوم';
+            Question.innerHTML = `:السؤال الثالث عشر<br><img class="img" src="che/pm13.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'بروم';
+            }
+            button2.onclick = () => {
+                ans = 'بروميثيوم';
+            }
+            button3.onclick = () => {
+                ans = 'بريليوم';
+            }
+        }
+        if(quesNumber === 13 && ans === 'بروميثيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 14;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 13 && ans === 'بروم' || quesNumber === 13 && ans === 'بريليوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 14;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 14){
+            button1.value = 'يورانيوم';
+            button2.value = 'يوروبيوم';
+            button3.value = 'يود';
+            Question.innerHTML = `:السؤال الرابع عشر<br><img class="img" src="che/eu14.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'يورانيوم';
+            }
+            button2.onclick = () => {
+                ans = 'يوروبيوم';
+            }
+            button3.onclick = () => {
+                ans = 'يود';
+            }
+        }
+        if(quesNumber === 14 && ans === 'يوروبيوم'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 15;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+                next.value = 'انهاء';
+            })
+            correctAnswers++;
+        }else if(quesNumber === 14 && ans === 'يورانيوم' || quesNumber === 14 && ans === 'يود'){
+            button1.style.background = 'red';
+            button2.style.background = 'yellowgreen';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 15;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.style.background = disbg;
+                next.style.pointerEvents = 'none';
+                next.value = 'انهاء';
+            })
+            incorrectAnswers++;
+        }
+        if(quesNumber === 15){
+            button1.value = 'اريديوم';
+            button2.value = 'حديد';
+            button3.value = 'نحاس';
+            Question.innerHTML = `:السؤال الخامس عشر<br><img class="img" src="che/ir15.png" draggable="false"><br>هذا العنصر هو`;
+            button1.onclick = () => {
+                ans = 'اريديوم';
+            }
+            button2.onclick = () => {
+                ans = 'حديد';
+            }
+            button3.onclick = () => {
+                ans = 'نحاس';
+            }
+        }
+        if(quesNumber === 15 && ans === 'اريديوم'){
+            correctAnswers++;
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 0;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.remove();
+            })
+        }else if(quesNumber === 15 && ans === 'حديد' || quesNumber === 15 && ans === 'نحاس'){
+            incorrectAnswers++;
+            button1.style.background = 'yellowgreen';
+            button2.style.background = 'red';
+            button3.style.background = 'red';
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            next.style.background = bg;
+            next.style.pointerEvents = 'all';
+            next.addEventListener("click", e => {
+                quesNumber = 0;
+                button1.style.background = bg;
+                button2.style.background = bg;
+                button3.style.background = bg;
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+                next.remove();
+            })
+        }
+        if(quesNumber === 0){
+            document.removeEventListener('click', evl);
+    button1.remove();
+    button2.remove();
+    button3.remove();
+    const img = new Image(50, 50);
+    for (let i = 0; i < 150; i++) {
+        let bal = document.createElement('img');
+        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+        bal.width = 10;
+        bal.height = 10;
+        bal.classList.add('bal')
+        bal.draggable = false;
+        bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        document.body.append(bal);
+    };
+    
+    for (let j = 0; j < 150; j++) {
+        let img = document.getElementsByClassName('bal')[j];
+        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+    };
+    
+    for (let x = 0; x < 150; x++) {
+        let tag = document.getElementsByClassName('bal')[x];
+        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+        setInterval(() => {
+            t1 -= Math.floor(Math.random() * 3);
+            tag.style.bottom = t1 + 'px';
+        }, 15);
+    };
+    Question.innerHTML = ``;
+    if(correctAnswers >= 0 && correctAnswers <= 6){
+        Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
+        img.src = 'che/blue.png'
+        img.className = 'blue';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('blue')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 7 && correctAnswers <= 10){
+        Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
+        img.src = 'che/bronze.png'
+        img.className = 'bronze';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('bronze')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers >= 11 && correctAnswers <= 14){
+        Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
+        img.src = 'che/silver.png'
+        img.className = 'silver';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('silver')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }else if(correctAnswers == 15){
+        Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
+        img.src = 'che/gold.png'
+        img.className = 'gold';
+        document.getElementsByClassName('buttons')[0].append(img);
+        let sc = 1;
+        let int = setInterval(() => {
+            sc += 0.01;
+            document.getElementsByClassName('gold')[0].style.scale = sc;
+            if(sc >= 1.6){
+                sc = 1.6;
+                clearInterval(int);
+            }
+        }, 100);
+    }
+        }
+        });
+        const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            button1.style.fontSize = '150%';
+            button2.style.fontSize = '150%';
+            button3.style.fontSize = '150%';
+            button1.style.height = '50px';
+            button2.style.height = '50px';
+            button3.style.height = '50px';
+        }
+
+        document.addEventListener('keyup', e => {
+            if(e.key === 'Enter') next.click();
+        })
+        window.addEventListener("blur", () => {
+            document.body.innerHTML = `<button id="re" onclick="location.reload();">إعادة المحاولة</button><style>#re{border:none;background:linear-gradient(#000, #111, #222, #333, #444, #555);color:#0cad1f;font-weight:900;height:10%;width:10%;font-size:100%;cursor:pointer;box-shadow:4px 4px 8px #fff;filter:brightness(200%);}#re:active{box-shadow:0px 0px 0px #fff;margin-top:4px;margin-left:4px;}</style>`;
+            alert('لا تفتح أي مواقع أخرى أثناء المرحلة');
+        })
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>جموع في اللغة العربية</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <style>
+            #input{
+                text-align: center;
+                outline: none;
+                border-image: url('border.png') 30 round;
+                font-weight: 900;
+                font-size: 100%;
+                background: linear-gradient(to left, rgba(0, 0, 0, 0), #32c022, rgba(0, 0, 0, 0));
+                color: #fff;
+                animation: brd 1s linear 0s infinite alternate;
+                font-family: Arial;
+            }
+            #input::placeholder{
+                color: #fff;
+            }
+            #input:focus::placeholder{
+                color: transparent;
+            }
+            .okAns{
+                border: none;
+                background: #32c022;
+                cursor: pointer;
+                color: #fff;
+                font-family: Arial;
+                text-align: center;
+                font-size: 100%;
+                font-weight: 900;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+            }
+            .okAns:active{
+                box-shadow: -4px -4px 4px rgba(0, 0, 0, 1);
+            }
+            @keyframes brd {
+                0%{border-image: url('border.png') 20 round;}
+                25%{border-image: url('border.png') 30 round;}
+                50%{border-image: url('border.png') 40 round;}
+                75%{border-image: url('border.png') 30 round;}
+                100%{border-image: url('border.png') 20 round;}
+            }
+            body{
+                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(che/arabiclang.png);
+            }
+            .tof_container{
+                display: none;
+                justify-content: center;
+                align-items: center;
+                height: 40%;
+            }
+            .tof{
+                background: yellowgreen;
+                width: 40%;
+                height: 100%;
+                box-shadow: 4px 4px 8px #fff;
+                transform: translateY(-95%);
+            }
+            .tof_text{
+                font-family: Arial;
+                font-weight: 700;
+                transform: translateY(50%) translateX(40%);
+                padding: 15px;
+                width: 50%;
+                background: #005eff;
+            }
+            .next_button{
+                border: none;
+                background: #7500fb;
+                color: #fff;
+                box-shadow: 0px 0px 8px #fff;
+                cursor: pointer;
+                transform: translateY(550%);
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 50%;
+                height: 25px;
+                font-weight: 800;
+                transition: 0.3s;
+            }
+            .next_button:hover{
+                box-shadow: 0px 0px 16px #fff;
+                filter: brightness(120%);
+            }
+        </style>
+    </head>
+    <body>
+            <a href="game.html" class="back" ><img src="che/home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+    <div class="game">
+    <div class="text">
+    <h1 class="Question">:السؤال الأول<br>جمع كلمة بؤبؤ من 5 حروف</h1>
+    </div>
+    <div class="buttons">
+        <br><br><br><input type="text" id="input" placeholder="الإجابة هنا" onkeyup="this.value = this.value.replace(/[^أ-يء]+/, '')" maxlength="5" title="" required /><br><br><br>
+        <button class="okAns">تأكيد الإجابة&nbsp;&#128077;</button><br><br>
+        </div>
+        <div class="tof_container">
+            <div class="tof">
+                <div class="tof_text">
+                    إجابة صحيحة
+                </div>
+                <div class="next_button_container">
+                    <button class="next_button">
+                        التالي
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script type="text/javascript">
+            let Question = document.getElementsByClassName('Question')[0];
+            let input = document.getElementById('input');
+            let okAns = document.getElementsByClassName('okAns')[0];
+            let total = 15;
+            let correctAnswers = 0;
+            let incorrectAnswers = 0;
+            let quesNumber = 1;
+            let ans;
+            let tof_container = document.getElementsByClassName('tof_container')[0];
+            let tof_text = document.getElementsByClassName('tof_text')[0];
+            let next_button = document.getElementsByClassName('next_button')[0];
+            let tof = document.getElementsByClassName('tof')[0];
+            let y = 'yellowgreen';
+            let r = 'red';
+            let n = 'none';
+            let f = 'flex';
+            let tr = 'إجابة صحيحة';
+            let fa = 'اجابة خاطئة';
+            let co = '';
+
+            okAns.addEventListener("click", () => {
+                if(input.value === ''){
+                    input.placeholder = 'أدخل الإجابة من فضلك';
+                }
+                else{
+                    input.placeholder = 'الإجابة هنا';
+                }
+            });
+            document.addEventListener("click", function evl() {
+                if(quesNumber === 1){
+                    okAns.onclick = () => {
+                        if(input.value === 'بيابي' || input.value === 'بيابى'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 2;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'بيابي';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 2;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 2){
+                    Question.innerHTML = `:السؤال الثاني<br>جمع كلمة هدهد من 5 حروف`;
+                    okAns.onclick = () => {
+                        if(input.value === 'هداهد'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 3;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'هداهد';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 3;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 3){
+                    Question.innerHTML = `:السؤال الثالث<br>جمع كلمة طاووس من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'طواويس'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 4;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'طواويس';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 4;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 4){
+                    Question.innerHTML = `:السؤال الرابع<br>جمع كلمة دَاءٌ من 5 حروف`;
+                    input.maxLength = 5;
+                    okAns.onclick = () => {
+                        if(input.value === 'ادواء' || input.value === 'أدواء'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 5;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'ادواء';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 5;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 5){
+                    Question.innerHTML = `:السؤال الخامس<br>جمع كلمة اُمرُؤٌ من 4 حروف`;
+                    input.maxLength = 4;
+                    okAns.onclick = () => {
+                        if(input.value === 'رجال'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 6;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'رجال';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 6;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 6){
+                    Question.innerHTML = `:السؤال السادس<br>جمع كلمة غضنفر من 5 حروف`;
+                    input.maxLength = 5;
+                    okAns.onclick = () => {
+                        if(input.value === 'غضافر'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 7;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'غضافر';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 7;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 7){
+                    Question.innerHTML = `:السؤال السابع<br>جمع كلمة خازن من 4 حروف`;
+                    input.maxLength = 4;
+                    okAns.onclick = () => {
+                        if(input.value === 'خزنة'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 8;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'خزنة';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 8;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 8){
+                    Question.innerHTML = `:السؤال الثامن<br>جمع كلمة قِنطار من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'قناطير'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 9;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'قناطير';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 9;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 9){
+                    Question.innerHTML = `:السؤال التاسع<br>جمع كلمة سَفَرْجَلٌ من 5 حروف`;
+                    input.maxLength = 5;
+                    okAns.onclick = () => {
+                        if(input.value === 'سفارج'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 10;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'سفارج';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 10;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 10){
+                    Question.innerHTML = `:السؤال العاشر<br>جمع كلمة عَنـْكَبُوتٌ من 5 حروف`;
+                    input.maxLength = 5;
+                    okAns.onclick = () => {
+                        if(input.value === 'عناكب'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 11;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'عناكب';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 11;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 11){
+                    Question.innerHTML = `:السؤال الحادي عشر<br>جمع كلمة فِرْدَوْسٌ من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'فراديس'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 12;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'فراديس';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 12;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 12){
+                    Question.innerHTML = `:السؤال الثاني عشر<br>جمع كلمة يَاقُوتٌ من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'يواقيت'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 13;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'يواقيت';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 13;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 13){
+                    Question.innerHTML = `:السؤال الثالث عشر<br>جمع كلمة كَوْثَرٌ من 5 حروف`;
+                    input.maxLength = 5;
+                    okAns.onclick = () => {
+                        if(input.value === 'كواثر'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 14;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'كواثر';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 14;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 14){
+                    Question.innerHTML = `:السؤال الرابع عشر<br>جمع كلمة بلعوم من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'بلاعيم'){
+                            correctAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 15;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'بلاعيم';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 15;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 15){
+                    Question.innerHTML = `:السؤال الخامس عشر<br>جمع كلمة مضمار من 6 حروف`;
+                    input.maxLength = 6;
+                    okAns.onclick = () => {
+                        if(input.value === 'مضامير'){
+                            correctAnswers++;
+                            next_button.innerHTML = 'انهاء';
+                            tof_container.style.display = f;
+                            tof.style.background = y;
+                            co = '';
+                            tof_text.innerHTML = tr;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 0;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }else if(input.value !== ''){
+                            incorrectAnswers++;
+                            next_button.innerHTML = 'انهاء';
+                            tof_container.style.display = f;
+                            tof.style.background = r;
+                            co = 'طواويس';
+                            tof_text.innerHTML = fa + '<br>' + 'الإجابة الصحيحة: ' + co;
+                            next_button.addEventListener("click", () => {
+                                tof_container.style.display = n;
+                                quesNumber = 0;
+                            })
+                            ans = input.value;
+                            input.value = '';
+                        }
+                    }
+                }
+                if(quesNumber === 0){
+                    document.removeEventListener('click', evl);
+                    input.remove();
+                    okAns.remove();
+                    const img = new Image(50, 50);
+                    for (let i = 0; i < 150; i++) {
+                        let bal = document.createElement('img');
+                        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+                        bal.width = 10;
+                        bal.height = 10;
+                        bal.classList.add('bal')
+                        bal.draggable = false;
+                        bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+                        document.body.append(bal);
+                    };
+
+                    for (let j = 0; j < 150; j++) {
+                        let img = document.getElementsByClassName('bal')[j];
+                        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+                    };
+
+                    for (let x = 0; x < 150; x++) {
+                        let tag = document.getElementsByClassName('bal')[x];
+                        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+                        setInterval(() => {
+                            t1 -= Math.floor(Math.random() * 3);
+                            tag.style.bottom = t1 + 'px';
+                        }, 15);
+                    };
+                    Question.innerHTML = ``;
+                    if(correctAnswers >= 0 && correctAnswers <= 6){
+                        Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
+                        img.src = 'che/blue.png'
+                        img.className = 'blue';
+                        document.getElementsByClassName('buttons')[0].append(img);
+                        let sc = 1;
+                        let int = setInterval(() => {
+                            sc += 0.01;
+                            document.getElementsByClassName('blue')[0].style.scale = sc;
+                            if(sc >= 1.6){
+                                sc = 1.6;
+                                clearInterval(int);
+                            }
+                        }, 100);
+                    }else if(correctAnswers >= 7 && correctAnswers <= 10){
+                        Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
+                        img.src = 'che/bronze.png'
+                        img.className = 'bronze';
+                        document.getElementsByClassName('buttons')[0].append(img);
+                        let sc = 1;
+                        let int = setInterval(() => {
+                            sc += 0.01;
+                            document.getElementsByClassName('bronze')[0].style.scale = sc;
+                            if(sc >= 1.6){
+                                sc = 1.6;
+                                clearInterval(int);
+                            }
+                        }, 100);
+                    }else if(correctAnswers >= 11 && correctAnswers <= 14){
+                        Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
+                        img.src = 'che/silver.png'
+                        img.className = 'silver';
+                        document.getElementsByClassName('buttons')[0].append(img);
+                        let sc = 1;
+                        let int = setInterval(() => {
+                            sc += 0.01;
+                            document.getElementsByClassName('silver')[0].style.scale = sc;
+                            if(sc >= 1.6){
+                                sc = 1.6;
+                                clearInterval(int);
+                            }
+                        }, 100);
+                    }else if(correctAnswers == 15){
+                        Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
+                        img.src = 'che/gold.png'
+                        img.className = 'gold';
+                        document.getElementsByClassName('buttons')[0].append(img);
+                        let sc = 1;
+                        let int = setInterval(() => {
+                            sc += 0.01;
+                            document.getElementsByClassName('gold')[0].style.scale = sc;
+                            if(sc >= 1.6){
+                                sc = 1.6;
+                                clearInterval(int);
+                            }
+                        }, 100);
+                    }
+        }
+            });
+            const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            input.style.width = '50%';
+            input.style.height = '50px';
+            input.style.animation = `mbl 1s linear 0s infinite alternate;`;
+            input.style.borderWidth = '20px';
+            input.style.fontSize = '200%';
+            okAns.style.fontSize = '180%';
+            okAns.style.width = '40%';
+            okAns.style.height = '50px';
+        }
+        function sendMessage(msg){
+            document.body.innerHTML = `<button id="re" onclick="location.reload();">إعادة المحاولة</button><style>#re{border:none;background:linear-gradient(#000, #111, #222, #333, #444, #555);color:#0cad1f;font-weight:900;height:10%;width:10%;font-size:100%;cursor:pointer;box-shadow:4px 4px 8px #fff;filter:brightness(200%);}#re:active{box-shadow:0px 0px 0px #fff;margin-top:4px;margin-left:4px;}</style>`
+            alert(msg);
+        }
+        window.addEventListener("blur", () => {
+            sendMessage('لا تفتح أي مواقع أخرى أثناء المرحلة');
+        })
+        </script>
+    </body>
+    </html>

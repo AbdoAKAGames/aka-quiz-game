@@ -1,0 +1,97 @@
+
+html, body{
+    height: 100%;
+    margin: 0;
+    user-select: none;
+}
+#button1, #button2, #button3, #btnShowQ, #x{
+    background: linear-gradient(#0000ff, #00ffff);
+    color: white;
+    cursor: pointer;
+    width: 20%;
+    height: 30px;
+    transition: 0.3s;
+    font-weight: 900;
+    font-family: Arial;
+    font-size: 100%;
+    border: 3px solid #b800be;
+    border-radius: 5px;
+    height: 20%;
+    margin-top: 5px;
+}
+#button1:hover, #button2:hover, #button3:hover, #btnShowQ:hover, #x:hover{
+    filter: brightness(130%);
+}
+#next{
+    background: linear-gradient(#666, #555);
+    color: white;
+    cursor: pointer;
+    border: 3px solid #b800be;
+    transition: 0.3s;
+    font-weight: 900;
+    width: 10%;
+    height: 30px;
+    transform: translateY(-450%) translateX(450%);
+    pointer-events: none;
+}
+.game{
+    text-align: center;
+}
+.text{
+    color: #fff;
+    font-weight: 900;
+    background: linear-gradient(#ff0000, #d200f7);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.game{
+    height: 100%;
+}
+body{
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    font-size: large;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.buttons{
+    background: linear-gradient(#ffa600, #ffff00);
+    height: 35%;
+}
+.back{
+    background: lime;
+    text-decoration: none;
+    font-family: Arial;
+}
+.gold{
+    width: 20%;
+    height: 50%;
+    filter: brightness(130%);
+    transform: translateY(-50%);
+}
+.blue{
+    width: 20%;
+    height: 60%;
+    filter: brightness(130%);
+    transform: translateY(-30%);
+}
+.silver{
+    width: 10%;
+    height: 40%;
+    filter: brightness(110%);
+    transform: translateY(-50%);
+}
+.bronze{
+    width: 15%;
+    height: 40%;
+    filter: brightness(130%);
+    transform: translateY(-50%);
+}
+.bal{
+    position: fixed;
+    filter: brightness(130%);
+}

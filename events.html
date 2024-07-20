@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - الأحداث</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            background: linear-gradient(#b700ff, #ff00e1);
+        }
+        .page_title{
+            text-align: center;
+            z-index: -1;
+            color: rgb(130, 255, 62);
+            background: linear-gradient(#009dff, #0018f0);
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            border: 3px solid #00ddff;
+            border-radius: 15px;
+            width: 50%;
+        }
+        .weekley_challenge{
+            text-align: center;
+            background: linear-gradient(#ccff00, #0dff00, #00ffee);
+            border-radius: 15px;
+            cursor: pointer;
+            width: 20%;
+            border: 3px solid #ff005d;
+        }
+        .weekley_challenge_text{
+            color: #ff00e1;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+            font-weight: 900;
+        }
+        .weekley_challenge_img{
+            width: 60%;
+        }
+        .img_container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .weekley{
+            display: flex;
+            justify-content: end;
+        }
+        .back{
+            text-decoration: none;
+            color: #00ddff;
+            font-family: system-ui;
+            font-size: larger;
+            position: fixed;
+            background: #000dff;
+            width: 20%;
+            text-align: center;
+            border-radius: 5px;
+            border: 2px solid #22fc00;
+        }
+        h1{
+            font-size: 119px;
+            background: #000;
+            color: #b700ff;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+        }
+        .bal{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a class="back" href="game.html">العودة الى المجموعات</a>
+        <center>
+            <div class="page_title" id="page_title">
+                <div class="title_text" id="title_text">الأحداث</div>
+            </div>
+        </center>
+        <div class="weekley">
+            <div class="weekley_challenge">
+                <a href="weekley.html">
+                    <div class="text_container">
+                        <div class="weekley_challenge_text">التحدي الأسبوعي</div>
+                    </div>
+                        <div class="img_container">
+                            <div class="weekley_challenge_img">
+                                <img src="Events.png" alt="img" class="weekley_challenge_img" draggable="false">
+                            </div>
+                        </div>
+                    </a>
+            </div>
+        </div>
+    </div>
+    <h1>المزيد من الأحداث قريبا إن شاء الله</h1>
+    <script>
+        for (let i = 0; i < 25; i++) {
+                            let bal = document.createElement('img');
+                            bal.src = 'che/pink_square.png';
+                            bal.width = 50;
+                            bal.height = 50;
+                            bal.style.opacity = 0.5;
+                            bal.style.zIndex = -1;
+                            bal.style.filter = 'brightness(135%)';
+                            bal.classList.add('bal')
+                            bal.draggable = false;
+                            bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+                            document.body.append(bal);
+                        };
+                        
+                        for (let j = 0; j < 25; j++) {
+                            let img = document.getElementsByClassName('bal')[j];
+                            img.style.top = Math.floor(Math.random() * window.innerHeight) + 'px';
+                        };
+                        
+                        for (let x = 0; x < 25; x++) {
+                            let tag = document.getElementsByClassName('bal')[x];
+                            let t1 = +tag.style.top.slice(0, 4) || +tag.style.top.slice(0, 3) || +tag.style.top.slice(0, 2) || +tag.style.top.slice(0, 1);
+                            let rot = 0;
+                            setInterval(() => {
+                                rot += 0.3;
+                                t1 -= Math.floor(Math.random() * 2);
+                                tag.style.top = t1 + 'px';
+                                tag.style.rotate = CSS.deg(rot);
+                            }, 15);
+                        };
+    </script>
+</body>
+</html>
