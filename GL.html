@@ -7,12 +7,12 @@
         <link rel="shortcut icon" href="icon.png" type="image/x-icon">
         <style>
             body{
-                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(che/Game3.png);
+                background-image: linear-gradient(rgba(0, 0, 255, 0.358), rgba(255, 0, 0, 0.358), rgba(255, 255, 0, 0.358)), url(Game3.png);
             }
         </style>
     </head>
     <body>
-            <a href="game.html" class="back" ><img src="che/home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+            <a href="game.html" class="back" ><img src="home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
     <div class="game">
     <div class="text">
     <h1 class="Question">:السؤال الأول<br>من هو النبي الذي تمنى أن يموت</h1>
@@ -918,7 +918,7 @@ if(quesNumber === 0){
     const img = new Image(50, 50);
     for (let i = 0; i < 150; i++) {
         let bal = document.createElement('img');
-        bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+        bal.src = 'paper' + Math.floor(Math.random() * 6) + '.png';
         bal.width = 10;
         bal.height = 10;
         bal.classList.add('bal')
@@ -943,7 +943,7 @@ if(quesNumber === 0){
     Question.innerHTML = ``;
     if(correctAnswers >= 0 && correctAnswers <= 6){
         Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
-        img.src = 'che/blue.png'
+        img.src = 'blue.png'
         img.className = 'blue';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -957,7 +957,7 @@ if(quesNumber === 0){
         }, 100);
     }else if(correctAnswers >= 7 && correctAnswers <= 10){
         Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
-        img.src = 'che/bronze.png'
+        img.src = 'bronze.png'
         img.className = 'bronze';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -971,7 +971,7 @@ if(quesNumber === 0){
         }, 100);
     }else if(correctAnswers >= 11 && correctAnswers <= 14){
         Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
-        img.src = 'che/silver.png'
+        img.src = 'silver.png'
         img.className = 'silver';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
@@ -985,7 +985,7 @@ if(quesNumber === 0){
         }, 100);
     }else if(correctAnswers == 15){
         Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
-        img.src = 'che/gold.png'
+        img.src = 'gold.png'
         img.className = 'gold';
         document.getElementsByClassName('buttons')[0].append(img);
         let sc = 1;
