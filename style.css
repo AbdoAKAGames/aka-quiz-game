@@ -1,102 +1,97 @@
-.game{
-    width: 500px;
-    text-align: center;
-    font-family: system-ui;
-    color: #fff;
-    margin: auto;
-    font-weight: 500;
-}
-.title{
-    background: #0cb454;
-    padding: 5px 0;
-    margin: 5px 0;
-    width: 460px;
-    height: 30px;
-    font-size: 25px;
-}
-span{
-    color: #fa0;
-}
-.square{
-    width: 150px;
-    height: 150px;
-    background: #0cb454;
-    float: left;
-    margin: 2px;
-    font-size: 100px;
-}
-.square:hover{
-    background: #00eeff;
-    cursor: pointer;
-}
+
 html, body{
     height: 100%;
-    overflow: hidden;
+    margin: 0;
+    user-select: none;
+}
+#button1, #button2, #button3, #btnShowQ, #x{
+    background: linear-gradient(#0000ff, #00ffff);
+    color: white;
+    cursor: pointer;
+    width: 20%;
+    height: 30px;
+    transition: 0.3s;
+    font-weight: 900;
+    font-family: Arial;
+    font-size: 100%;
+    border: 3px solid #b800be;
+    border-radius: 5px;
+    height: 20%;
+    margin-top: 5px;
+}
+#button1:hover, #button2:hover, #button3:hover, #btnShowQ:hover, #x:hover{
+    filter: brightness(130%);
+}
+#next{
+    background: linear-gradient(#666, #555);
+    color: white;
+    cursor: pointer;
+    border: 3px solid #b800be;
+    transition: 0.3s;
+    font-weight: 900;
+    width: 10%;
+    height: 30px;
+    transform: translateY(-450%) translateX(450%);
+    pointer-events: none;
+}
+.game{
+    text-align: center;
+}
+.text{
+    color: #fff;
+    font-weight: 900;
+    background: linear-gradient(#ff0000, #d200f7);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.game{
+    height: 100%;
 }
 body{
-    background: #000;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    font-size: large;
+    text-align: center;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.p2{
-    color: #fff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: -webkit-linear-gradient(#0011ff 15%, #33ff00);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+.buttons{
+    background: linear-gradient(#ffa600, #ffff00);
+    height: 35%;
 }
-.g{
-    color: #fff200;
-}
-.won{
-    color: greenyellow;
-}
-.x{
-    color: blue;
-}
-.o{
-    color: red;
-}
-.XScore{
-    color: #fff;
+.back{
+    background: lime;
+    text-decoration: none;
     font-family: Arial;
+}
+.gold{
+    width: 20%;
+    height: 50%;
+    filter: brightness(130%);
+    transform: translateY(-50%);
+}
+.blue{
+    width: 20%;
+    height: 60%;
+    filter: brightness(130%);
+    transform: translateY(-30%);
+}
+.silver{
+    width: 10%;
+    height: 40%;
+    filter: brightness(110%);
+    transform: translateY(-50%);
+}
+.bronze{
+    width: 15%;
+    height: 40%;
+    filter: brightness(130%);
+    transform: translateY(-50%);
+}
+.bal{
     position: fixed;
-}
-.OScore{
-    color: #fff;
-    font-family: Arial;
-    position: fixed;
-}
-.disabledDiv {
-    pointer-events: none;
-    opacity: 0.6;
-}
-.draw{
-    color: #fff;
-    font-weight: 900;
-    font-family: Arial;
-    position: fixed;
-    font-size: 140px;
-    margin-left: -7.7px;
-}
-.restart{
-    border: none;
-    color: #fff;
-    font-family: Arial;
-    background: #000;
-    font-weight: 900;
-    font-size: 15%;
-    cursor: pointer;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, .7);
-}
-.reset{
-    position: fixed;
-    left: 0;
-    margin-top: 50px;
-    border: none;
-    color: #000;
-    font-family: Arial;
-    background: #aeff00;
-    font-weight: 900;
-    font-size: 150%;
-    cursor: pointer;
-    box-shadow: 4px 4px 6px rgba(255, 255, 255, .7);
+    filter: brightness(130%);
 }
