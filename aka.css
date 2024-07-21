@@ -1,0 +1,72 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(#77ff00, #10aacc);
+}
+.title{
+    width: 100%;
+    background: linear-gradient(#c821ce, #8f21ce);
+    height: 15%;
+    color: #fff;
+    text-align: center;
+}
+.logo_container{
+    font-family: system-ui;
+    font-size: 300%;
+    cursor: default;
+}
+#LOGONAME{
+    background: -webkit-linear-gradient(45deg, #ffd500 15%, #33ff00);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    transition: 0.5s;
+    animation: LOGO 1s linear 0s infinite alternate;
+}
+.games{
+    width: 50%;
+    height: 50%;
+    background: #3c3c3c;
+    border-radius: 10px;
+    border: 3px solid #6f6f6f;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.games:hover{
+    background: #464646;
+}
+.ourgames_text{
+    cursor: pointer;
+    font-family: Arial;
+}
+.game{
+    width: 30%;
+    height: 50%;
+    background: #cccbcb;
+    border-radius: 10px;
+    border: 3px solid #6f6f6f;
+    display: inline-block;
+}
+.game:hover{
+    background: #fff;
+}
+.game_title{
+    color: #000;
+    font-family: system-ui;
+    font-weight: 500;
+    height: 11%;
+    background: #dede0d;
+    border-radius: 10px;
+}
+.game_img{
+    border-radius: 10px;
+    height: 89%;
+}
+@keyframes LOGO {
+    0%{background: -webkit-linear-gradient(45deg, #ffd500, #33ff00);background-clip: text;-webkit-text-fill-color: transparent;}
+    25%{background: -webkit-linear-gradient(45deg, #005eff, #9d00ff);background-clip: text;-webkit-text-fill-color: transparent;}
+    50%{background: -webkit-linear-gradient(45deg, #ff0800, #ff0095);background-clip: text;-webkit-text-fill-color: transparent;}
+    75%{background: -webkit-linear-gradient(45deg, #22ff00, #00fff2);background-clip: text;-webkit-text-fill-color: transparent;}
+    100%{background: -webkit-linear-gradient(45deg, #ffea00, #1100ff);background-clip: text;-webkit-text-fill-color: transparent;}
+}

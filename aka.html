@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKA Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="title">
+        <div class="logo_container">
+            <div id="LOGONAME">AKA <img src="logo.png" alt="logo" class="logo_image" height="100" draggable="false">GAMES</div>
+        </div>
+    </div>
+    <div class="games">
+        <h1 class="ourgames_text">Our Games:</h1>
+        <br>
+        <div class="game QuizGame">
+            <div class="game_title">
+                Quiz Game
+            </div>
+            <a href="Quiz Game/index.html" target="_blank"><img class="game_img" src="quiz game logo.png" width="100%"></a>
+        </div>
+        <div class="game XOGame">
+            <div class="game_title">
+                XO Game
+            </div>
+            <a href="XO Game/start.html" target="_blank"><img class="game_img" src="xo game logo.png" width="100%"></a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        document.getElementsByClassName('ourgames_text')[0].addEventListener("selectstart", (e) => {
+            e.preventDefault();
+        })
+        document.getElementsByClassName('logo_container')[0].addEventListener("selectstart", (e) => {
+            e.preventDefault();
+        })
+        for(let i = 0;i < 3;i++){
+            document.getElementsByClassName('game_title')[i].addEventListener("selectstart", (e) => {
+            e.preventDefault();
+        })
+        }
+    </script>
+</body>
+</html>
