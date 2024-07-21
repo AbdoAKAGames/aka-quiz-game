@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO Game</title>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        body{
+            background-image: url(Big\ XO.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            text-align: center;          
+        }
+        .title{
+            color: #fff;
+            font-family: system-ui;
+            font-size: 300%;
+            background: linear-gradient(150deg, #000, #222, #444);
+        }
+        .container{
+            background: linear-gradient(#555, #000);
+            height: 100%;
+            width: 50%;
+        }
+        .btn{
+            width: 30%;
+            height: 100%;
+            border-radius: 0;
+            background: #950505;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:active{
+            border: none;
+            scale: 0.9;
+        }
+        .x{
+            color: #c5f600;
+        }
+        .o{
+            color: #00c2fc;
+        }
+        .g{
+            color: #0046f6;
+        }
+        .a{
+            color: #8b00f6;
+        }
+        .m{
+            color: #f60090;
+        }
+        .e{
+            color: #f67700;
+        }
+        .p2{
+            height: 10%;
+        }
+        .p1{
+            height: 10%;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title"><span class="x">X</span><span class="o">O</span> <span class="g">G</span><span class="a">a</span><span class="m">m</span><span class="e">e</span></h1>
+    <br><br>
+    <center style="height: 50%;">
+    <div class="container">
+        <br><br><br><br><br><br>
+        <form class="p1" action="vsCPU.html">
+            <button class="btn Player1">1 Player</button><br><br><br><br>
+        </form>
+        <form class="p2" action="index.html">
+            <button class="btn Players2">2 Players</button>
+        </form>
+    </div>
+</center>
+    <script>
+
+    </script>
+</body>
+</html>
