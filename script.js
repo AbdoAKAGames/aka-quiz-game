@@ -985,7 +985,3 @@ if(quesNumber === 0){
         document.addEventListener('keyup', e => {
             if(e.key === 'Enter') next.click();
         })
-        window.addEventListener("blur", () => {
-            document.body.innerHTML = `<button id="re" onclick="location.reload();">إعادة المحاولة</button><style>#re{border:none;background:linear-gradient(#000, #111, #222, #333, #444, #555);color:#0cad1f;font-weight:900;height:10%;width:10%;font-size:100%;cursor:pointer;box-shadow:4px 4px 8px #fff;filter:brightness(200%);}#re:active{box-shadow:0px 0px 0px #fff;margin-top:4px;margin-left:4px;}</style>`;
-            alert('لا تفتح أي مواقع أخرى أثناء المرحلة');
-        })
