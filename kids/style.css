@@ -8,7 +8,7 @@ html, body{
 }
 .buttons{
     background: linear-gradient(#ffa600, #ffff00);
-    height: auto;
+    height: 35%;
 }
 #button1, #button2, #button3{
     background: linear-gradient(#0000ff, #00ffff);
@@ -56,6 +56,8 @@ body{
     background: lime;
     text-decoration: none;
     font-family: Arial;
+    font-weight: 600;
+    color: #000;
 }
 .gold{
     width: 20%;
@@ -88,4 +90,14 @@ body{
     display: none;
     align-items: center;
     position: absolute;
+}
+@media only screen and (max-width:500px) {
+    .back{
+        display: inline-block;
+        width: 50%;
+        font-size: 20px;
+    }
+    #button1, #button2, #button3{
+        width: 50%;
+    }
 }

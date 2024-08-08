@@ -6,6 +6,7 @@
         <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="game">
@@ -233,19 +234,6 @@
         };
         
     })
-        const ua = navigator.userAgent;
-        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
-        if(mobRegex.test(ua)){
-            button1.style.fontSize = '200%';
-            button2.style.fontSize = '200%';
-            button3.style.fontSize = '200%';
-            button1.style.height = '40%';
-            button2.style.height = '40%';
-            button3.style.height = '40%';
-            button1.style.width = '50%';
-            button2.style.width = '50%';
-            button3.style.width = '50%';
-        }
 
         document.addEventListener('keyup', e => {
             if(e.key === 'Enter') next.click();
