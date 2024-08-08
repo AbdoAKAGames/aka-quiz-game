@@ -7,6 +7,14 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @media only screen and (max-width:500px) {
+                img:not(.back img){
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="game">
@@ -44,6 +52,7 @@
             button.style.background = bg;
             button.style.height = 'auto';
         });
+        document.getElementsByClassName('buttons')[0].style.height = 'auto';
 
             
     function generateBallons(){

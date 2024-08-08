@@ -32,8 +32,6 @@
         let total = 5;
         let correctAnswers = 0;
         let incorrectAnswers = 0;
-        let quesNumber = 1;
-        let ans;
         let bg = 'linear-gradient(#0000ff, #00ffff)';
         let disbg = 'linear-gradient(#666, #555)';
         let next = document.getElementById('next');
@@ -162,6 +160,7 @@
         audio.currentTime = 0;
         questions.splice(questions.indexOf(questions[index]), 1);
         index = Math.floor(Math.random() * questions.length);
+        questionNumber++;
         Question.innerHTML = questionNumberArr[questionNumber] + '<br>' + questions[index].question;
         button1.innerHTML = questions[index].choice1;
         button2.innerHTML = questions[index].choice2;
