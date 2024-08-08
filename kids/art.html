@@ -65,26 +65,18 @@
         bal.classList.add('bal')
         bal.draggable = false;
         bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        bal.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+        let t1 = +bal.style.bottom.slice(0, 4) || +bal.style.bottom.slice(0, 3) || +bal.style.bottom.slice(0, 2) || +bal.style.bottom.slice(0, 1);
+        setInterval(() => {
+            t1 += Math.floor(Math.random() * 3);
+            bal.style.bottom = t1 + 'px';
+        }, 15);
         document.body.append(bal);
     next.addEventListener("click", () => {
             bal.remove();
         })
     };
-    
-    for (let j = 0; j < 100; j++) {
-        let img = document.getElementsByClassName('bal')[j];
-        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
-    };
-    
-    for (let x = 0; x < 100; x++) {
-        let tag = document.getElementsByClassName('bal')[x];
-        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
-        setInterval(() => {
-            t1 -= Math.floor(Math.random() * 3);
-            tag.style.bottom = t1 + 'px';
-        }, 15);
-    };
-    }
+}
 
     const questions = [
         {
