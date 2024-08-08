@@ -19,6 +19,46 @@
             height: 65%;
             position: fixed;
             bottom: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .groups_container{
+            width: 100%;
+            height: 100%;
+        }
+        .left_groups{
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+        }
+        .left_groups_container, .center_groups_container, .right_groups_container{
+            width: 40%;
+            height: 100%;
+        }
+        .center_groups{
+            width: 25%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+        }
+        .right_groups{
+            width: 25%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: end;
+        }
+        form{
+            width: 100%;
+            height: 20%;
+            margin-bottom: 60px;
         }
         .groups-text{
             color: #fff;
@@ -27,10 +67,10 @@
             animation: txt 5s linear 0s infinite alternate;
         }
         .group{
+            width: 100%;
+            height: 100%;
             background: linear-gradient( 135deg, #FDD819 10%, #E80505 100%);
             background-size: 100% 100%;
-            width: 10%;
-            height: 10%;
             text-align: center;
             color: #fff;
             font-weight: 900;
@@ -68,6 +108,12 @@
             75%{color: #0077ff;}
             100%{color: #fb01ff;}
         }
+        @media only screen and (max-width:500px) {
+            .group{
+                width: 20%;
+                height: 10%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -76,100 +122,95 @@
         <h1 class="groups-text">المجموعات</h1>
     </center>
     <div class="groups">
-        <div style="height: 100%;width: 100%;">
-            <form action="religion1.html">
-            <button class="group1 group">
-                <br>
-                :المجموعة الأولى<br><br>
-                دين 1
-                <br><br>
-            </button>
-            </form>
-            <br><br>
-            <form action="arabic1.html">
-                <button class="group2 group">
-                    <br>
-                    :المجموعة الثانية<br><br>
-                    عربي 1
-                    <br><br>
-                </button>
-                </form><br><br>
-            <form action="math1.html">
-                <button class="group3 group">
-                    <br>
-                    :المجموعة الثالثة<br><br>
-                    رياضيات 1
-                    <br><br>
-                </button>
-                </form>
+        <div class="groups_container">
+            <div class="left_groups">
+                <div class="left_groups_container">
+                    <form action="religion1.html">
+                        <button class="group1 group">
+                            <br>
+                            :المجموعة الأولى<br>
+                            دين1
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="arabic1.html">
+                        <button class="group2 group">
+                            <br>
+                            :المجموعة الثانية<br>
+                            عربي1
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="math1.html">
+                        <button class="group3 group">
+                            <br>
+                            :المجموعة الثالثة<br>
+                            رياضيات1
+                            <br><br>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div id="ce" style="position: fixed; left: 45%;top: 35%;width: 100%;text-align: start;height: 100%;">
-                <form action="english1.html">
-                    <button class="group4 group">
-                        <br>
-                        :المجموعة الرابعة<br><br>
-                        English 1
-                        <br><br>
-                    </button>
-                </form><br><br>
-                <form action="religion2.html">
-                    <button class="group5 group">
-                        <br>
-                        :المجموعة الخامسة<br><br>
-                        دين 2
-                        <br><br>
-                    </button>
-                </form><br><br>
-                <form action="arabic2.html">
-                    <button class="group6 group">
-                        <br>
-                        :المجموعة السادسة<br><br>
-                        عربي 2
-                        <br><br>
-                    </button>
-                </form><br><br>
+            <div class="center_groups">
+                <div class="center_groups_container">
+                    <form action="english1.html">
+                        <button class="group4 group">
+                            <br>
+                            :المجموعة الرابعة<br>
+                            English1
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="religion2.html">
+                        <button class="group5 group">
+                            <br>
+                            :المجموعة الخامسة<br>
+                            دين2
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="arabic2.html">
+                        <button class="group6 group">
+                            <br>
+                            :المجموعة السادسة<br>
+                            عربي2
+                            <br><br>
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div id="ri" style="position: fixed; left: 90%;top: 35%;width: 100%;text-align: start;height: 100%;">
-                <form action="math2.html">
-                    <button class="group7 group">
-                        <br>
-                        :المجموعة السابعة<br><br>
-                        رياضيات 2
-                        <br><br>
-                    </button>
-                </form><br><br>
-                <form action="english2.html">
-                    <button class="group8 group">
-                        <br>
-                        :المجموعة الثامنة<br><br>
-                        English 2
-                        <br><br>
-                    </button>
-                </form><br><br>
-                <form action="art.html">
-                    <button class="group9 group">
-                        <br>
-                        :المجموعة التاسعة<br><br>
-                        رسم
-                        <br><br>
-                    </button>
-                </form><br><br>
+            <div class="right_groups">
+                <div class="right_groups_container">
+                    <form action="math2.html">
+                        <button class="group7 group">
+                            <br>
+                            :المجموعة السابعة<br>
+                            رياضيات2
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="english2.html">
+                        <button class="group8 group">
+                            <br>
+                            :المجموعة الثامنة<br>
+                            English2
+                            <br><br>
+                        </button>
+                    </form>
+                    <form action="art.html">
+                        <button class="group9 group">
+                            <br>
+                            :المجموعة التاسعة<br>
+                            رسم
+                            <br><br>
+                        </button>
+                    </form>
+                </div>
             </div>
+        </div>
     </div>
 
     <script>
-        const ua = navigator.userAgent;
-        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
-        if(mobRegex.test(ua)){
-            for(let i = 0; i < document.getElementsByClassName('group').length; i++){
-            document.getElementsByClassName('group')[i].style.width = '15%';
-            document.getElementsByClassName('group')[i].style.height = '100px'
-            document.getElementsByClassName('group')[i].style.fontSize = '50%'
-        }
-        document.getElementById('ri').style.marginLeft = '-50px';
-        document.getElementById('ce').style.marginLeft = '-20px';
-        document.getElementsByClassName('groups-text')[0].style.fontSize = '150%';
-    }
     let i = 0;
     setInterval(() => {
         i += 0.5;
