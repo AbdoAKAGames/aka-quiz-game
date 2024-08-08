@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - للأطفال</title>
+    <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
+    <style>
+        body{
+            background-image: url(background.png);
+        }
+        html,body{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        .groups{
+            width: 100%;
+            height: 65%;
+            position: fixed;
+            bottom: 0;
+        }
+        .groups-text{
+            color: #fff;
+            font-family: Aldhabi;
+            font-size: 48px;
+            animation: txt 5s linear 0s infinite alternate;
+        }
+        .group{
+            background: linear-gradient( 135deg, #FDD819 10%, #E80505 100%);
+            background-size: 100% 100%;
+            width: 10%;
+            height: 10%;
+            text-align: center;
+            color: #fff;
+            font-weight: 900;
+            cursor: pointer;
+            border: none;
+            box-shadow: rgba(240, 46, 170, 0.4) -5px -5px,
+            rgba(240, 46, 170, 0.3) -10px -10px,
+            rgba(240, 46, 170, 0.2) -15px -15px,
+            rgba(240, 46, 170, 0.1) -20px -20px,
+            rgba(240, 46, 170, 0.05) -25px -25px,
+            rgba(240, 46, 170, 0.4) 5px 5px,
+            rgba(240, 46, 170, 0.3) 10px 10px,
+            rgba(240, 46, 170, 0.2) 15px 15px,
+            rgba(240, 46, 170, 0.1) 20px 20px,
+            rgba(240, 46, 170, 0.4) -5px 5px,
+            rgba(240, 46, 170, 0.3) -10px 10px,
+            rgba(240, 46, 170, 0.2) -15px 15px,
+            rgba(240, 46, 170, 0.1) -20px 20px,
+            rgba(240, 46, 170, 0.4) 5px -5px,
+            rgba(240, 46, 170, 0.3) 10px -10px,
+            rgba(240, 46, 170, 0.2) 15px -15px,
+            rgba(240, 46, 170, 0.1) 20px -20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .back{
+            background-color: #00ff59;
+            position: fixed;
+            box-shadow: 4px 4px 6px #fff;
+        }
+        @keyframes txt {
+            0%{color: #fff;}
+            25%{color: #fcdf00;}
+            50%{color: #00ff59;}
+            75%{color: #0077ff;}
+            100%{color: #fb01ff;}
+        }
+    </style>
+</head>
+<body>
+    <a href="../game.html"><img src="home.png" class="back" width="50" height="50"></a>
+    <center>
+        <h1 class="groups-text">المجموعات</h1>
+    </center>
+    <div class="groups">
+        <div style="height: 100%;width: 100%;">
+            <form action="religion1.html">
+            <button class="group1 group">
+                <br>
+                :المجموعة الأولى<br><br>
+                دين 1
+                <br><br>
+            </button>
+            </form>
+            <br><br>
+            <form action="arabic1.html">
+                <button class="group2 group">
+                    <br>
+                    :المجموعة الثانية<br><br>
+                    عربي 1
+                    <br><br>
+                </button>
+                </form><br><br>
+            <form action="math1.html">
+                <button class="group3 group">
+                    <br>
+                    :المجموعة الثالثة<br><br>
+                    رياضيات 1
+                    <br><br>
+                </button>
+                </form>
+            </div>
+            <div id="ce" style="position: fixed; left: 45%;top: 35%;width: 100%;text-align: start;height: 100%;">
+                <form action="english1.html">
+                    <button class="group4 group">
+                        <br>
+                        :المجموعة الرابعة<br><br>
+                        English 1
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="religion2.html">
+                    <button class="group5 group">
+                        <br>
+                        :المجموعة الخامسة<br><br>
+                        دين 2
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="arabic2.html">
+                    <button class="group6 group">
+                        <br>
+                        :المجموعة السادسة<br><br>
+                        عربي 2
+                        <br><br>
+                    </button>
+                </form><br><br>
+            </div>
+            <div id="ri" style="position: fixed; left: 90%;top: 35%;width: 100%;text-align: start;height: 100%;">
+                <form action="math2.html">
+                    <button class="group7 group">
+                        <br>
+                        :المجموعة السابعة<br><br>
+                        رياضيات 2
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="english2.html">
+                    <button class="group8 group">
+                        <br>
+                        :المجموعة الثامنة<br><br>
+                        English 2
+                        <br><br>
+                    </button>
+                </form><br><br>
+                <form action="art.html">
+                    <button class="group9 group">
+                        <br>
+                        :المجموعة التاسعة<br><br>
+                        رسم
+                        <br><br>
+                    </button>
+                </form><br><br>
+            </div>
+    </div>
+
+    <script>
+        const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            for(let i = 0; i < document.getElementsByClassName('group').length; i++){
+            document.getElementsByClassName('group')[i].style.width = '15%';
+            document.getElementsByClassName('group')[i].style.height = '100px'
+            document.getElementsByClassName('group')[i].style.fontSize = '50%'
+        }
+        document.getElementById('ri').style.marginLeft = '-50px';
+        document.getElementById('ce').style.marginLeft = '-20px';
+        document.getElementsByClassName('groups-text')[0].style.fontSize = '150%';
+    }
+    let i = 0;
+    setInterval(() => {
+        i += 0.5;
+        document.body.style.backgroundPositionX = i + 'px';
+        document.getElementsByClassName('groups')[0].style.backgroundPositionX = i + 'px';
+    }, 15);
+    </script>
+</body>
+</html>

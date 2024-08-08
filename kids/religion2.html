@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Quiz Game Kids - دين2</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="quiz.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="game">
+            <a href="./index.html" class="back" ><img src="home.png" alt="back" width="20" height="20">العودة إلى صفحة المجموعات</a>
+        <div class="text">
+        <h1 class="Question"></h1>
+        </div>
+        <div class="buttons">
+            <div class="img_container"></div>
+            <button id="button1"></button><br><br><br>
+            <button id="button2"></button><br><br><br>
+            <button id="button3"></button><br>
+        <button id="next"></button>
+        </div>
+
+        <script type="text/javascript">
+        let Question = document.getElementsByClassName('Question')[0];
+        let button1 = document.getElementById('button1');
+        let button2 = document.getElementById('button2');
+        let button3 = document.getElementById('button3');
+        const audioArr = ["voice1.mp3", "voice2.mp3", "voice3.mp3"];
+        let random = Math.floor(Math.random() * audioArr.length);
+        let audio = new Audio(audioArr[random]);
+        let total = 5;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let bg = 'pink';
+        let disbg = 'linear-gradient(#666, #555)';
+        let next = document.getElementById('next');
+        let answered = false;
+        let buttons = [button1, button2, button3];
+        let questionNumberArr = [":السؤال الأول", ":السؤال الثاني", ":السؤال الثالث", ":السؤال الرابع", ":السؤال الخامس"];
+        let questionNumber = 0;
+        buttons.forEach(button => {
+            button.style.background = bg;
+            button.style.height = 'auto';
+        });
+
+            
+    function generateBallons(){
+        for (let i = 0; i < 100; i++) {
+        let bal = document.createElement('img');
+        bal.src = 'balloon' + Math.floor(Math.random() * 6) + '.png';
+        bal.width = 50;
+        bal.height = 50;
+        bal.classList.add('bal')
+        bal.draggable = false;
+        bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+        document.body.append(bal);
+    next.addEventListener("click", () => {
+            bal.remove();
+        })
+    };
+    
+    for (let j = 0; j < 100; j++) {
+        let img = document.getElementsByClassName('bal')[j];
+        img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+    };
+    
+    for (let x = 0; x < 100; x++) {
+        let tag = document.getElementsByClassName('bal')[x];
+        let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+        setInterval(() => {
+            t1 -= Math.floor(Math.random() * 3);
+            tag.style.bottom = t1 + 'px';
+        }, 15);
+    };
+    }
+
+    const questions = [
+        {
+            question: "<img src='pray.png' height='80' width='80' style='margin-top: 5px;'>",
+            choice1: "<img src='quran.png' height='80' width='80'>",
+            choice2: "<img src='mosque.png' height='80' width='80'>",
+            choice3: "<img src='pray.png' height='80' width='80'>",
+            true: button3,
+            false1: button1,
+            false2: button2,
+        },
+        {
+            question: "<img src='mosque.png' height='80' width='80'>",
+            choice1: "<img src='pros.png' height='80' width='80'>",
+            choice2: "<img src='mosque.png' height='80' width='80'>",
+            choice3: "<img src='mos7af.png' height='80' width='80'>",
+            true: button2,
+            false1: button3,
+            false2: button1,
+        },
+        {
+            question: "<img src='quran.png' height='80' width='80'>",
+            choice1: "<img src='kaaba.png' height='80' width='80'>",
+            choice2: "<img src='quran.png' height='80' width='80'>",
+            choice3: "<img src='pray.png' height='80' width='80'>",
+            true: button2,
+            false1: button3,
+            false2: button1,
+        },
+        {
+            question: "<img src='pros.png' height='80' width='80'>",
+            choice1: "<img src='pros.png' height='80' width='80'>",
+            choice2: "<img src='mos7af.png' height='80' width='80'>",
+            choice3: "<img src='quran.png' height='80' width='80'>",
+            true: button1,
+            false1: button3,
+            false2: button2,
+        },
+        {
+            question: "<img src='kaaba.png' height='80' width='80'>",
+            choice1: "<img src='pray.png' height='80' width='80'>",
+            choice2: "<img src='mosque.png' height='80' width='80'>",
+            choice3: "<img src='kaaba.png' height='80' width='80'>",
+            true: button3,
+            false1: button1,
+            false2: button2,
+        },
+    ]
+    let index = Math.floor(Math.random() * questions.length);
+    if(questions.length > 0){
+        index = Math.floor(Math.random() * questions.length);
+        Question.innerHTML = questionNumberArr[questionNumber] + '<br>' + questions[index].question;
+        button1.innerHTML = questions[index].choice1;
+        button2.innerHTML = questions[index].choice2;
+        button3.innerHTML = questions[index].choice3;
+        document.addEventListener("click", (e) => {
+            if (!answered){
+                if(e.target === questions[index].true || e.target === questions[index].true.children[0]){
+                correctAnswers++;
+                questions[index].true.style.background = 'yellowgreen';
+                questions[index].false1.style.background = 'red';
+                questions[index].false2.style.background = 'red';
+                random = Math.floor(Math.random() * audioArr.length);
+                audio = new Audio(audioArr[random]);
+                audio.play();
+                generateBallons();
+                audio.addEventListener("ended", e => {
+                    next.click();
+                })
+                answered = true;
+            }else if(e.target == questions[index].false1 || e.target == questions[index].false2 || e.target == questions[index].false1.children[0] || e.target == questions[index].false2.children[0]){
+                incorrectAnswers++;
+                questions[index].true.style.background = 'yellowgreen';
+                questions[index].false1.style.background = 'red';
+                questions[index].false2.style.background = 'red';
+                setTimeout(() => {
+                    next.click();
+                }, 2000);
+                answered = true;
+            }
+        }
+        })
+    }
+    next.addEventListener("click", () => {
+        questions[index].true.style.background = bg;
+        questions[index].false1.style.background = bg;
+        questions[index].false2.style.background = bg;
+        audio.pause();
+        audio.currentTime = 0;
+        questions.splice(questions.indexOf(questions[index]), 1);
+        index = Math.floor(Math.random() * questions.length);
+        questionNumber++;
+        Question.innerHTML = questionNumberArr[questionNumber] + '<br>' + questions[index].question;
+        button1.innerHTML = questions[index].choice1;
+        button2.innerHTML = questions[index].choice2;
+        button3.innerHTML = questions[index].choice3;
+        answered = false;
+    });
+    document.addEventListener("click", function evl(e) {
+        if(questions.length == 0){
+            document.removeEventListener("click", evl);
+            button1.remove();
+            button2.remove();
+            button3.remove();
+            next.remove();
+            const img = new Image(50, 50);
+            for (let i = 0; i < 150; i++) {
+                let bal = document.createElement('img');
+                bal.src = 'che/paper' + Math.floor(Math.random() * 6) + '.png';
+                bal.width = 10;
+                bal.height = 10;
+                bal.classList.add('bal')
+                bal.draggable = false;
+                bal.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+                document.body.append(bal);
+            };
+            
+            for (let j = 0; j < 150; j++) {
+                let img = document.getElementsByClassName('bal')[j];
+                img.style.bottom = Math.floor(Math.random() * window.innerHeight) + 'px';
+            };
+            
+            for (let x = 0; x < 150; x++) {
+                let tag = document.getElementsByClassName('bal')[x];
+                let t1 = +tag.style.bottom.slice(0, 4) || +tag.style.bottom.slice(0, 3) || +tag.style.bottom.slice(0, 2) || +tag.style.bottom.slice(0, 1);
+                setInterval(() => {
+                    t1 -= Math.floor(Math.random() * 3);
+                    tag.style.bottom = t1 + 'px';
+                }, 15);
+            };
+            Question.innerHTML = ``;
+            if(correctAnswers >= 0 && correctAnswers < 1){
+                Question.innerHTML = `جيد<br>${total} / ${correctAnswers}`;
+                img.src = 'blue.png'
+                img.className = 'blue';
+            }else if(correctAnswers >= 1 && correctAnswers <= 2){
+                Question.innerHTML = `رائع<br>${total} / ${correctAnswers}`;
+                img.src = 'bronze.png'
+                img.className = 'bronze';
+            }else if(correctAnswers >= 3 && correctAnswers <= 4){
+                Question.innerHTML = `أحسنت<br>${total} / ${correctAnswers}`;
+                img.src = 'silver.png'
+                img.className = 'silver';
+            }else if(correctAnswers == 5){
+                Question.innerHTML = `ممتاز<br>لقد حصلت على الدرجة النهائية`;
+                img.src = 'gold.png'
+                img.className = 'gold';
+            }
+            
+            let sc = 1;
+            let int = setInterval(() => {
+                sc += 0.01;
+                img.style.scale = sc;
+                if(sc >= 1.6){
+                    sc = 1.6;
+                    clearInterval(int);
+                }
+            }, 100);
+            document.getElementsByClassName('img_container')[0].style.display = 'flex';
+            document.getElementsByClassName('img_container')[0].append(img);
+            document.getElementsByClassName('buttons')[0].style.height = '35%';
+        };
+        
+    })
+        const ua = navigator.userAgent;
+        const mobRegex = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/;
+        if(mobRegex.test(ua)){
+            button1.style.fontSize = '200%';
+            button2.style.fontSize = '200%';
+            button3.style.fontSize = '200%';
+            button1.style.height = '40%';
+            button2.style.height = '40%';
+            button3.style.height = '40%';
+            button1.style.width = '50%';
+            button2.style.width = '50%';
+            button3.style.width = '50%';
+        }
+
+        document.addEventListener('keyup', e => {
+            if(e.key === 'Enter') next.click();
+        })
+
+        let i = 0;
+    setInterval(() => {
+        i += 0.5;
+        document.body.style.backgroundPositionX = i + 'px';
+    }, 15);
+    </script>
+    </body>
+    </html>
