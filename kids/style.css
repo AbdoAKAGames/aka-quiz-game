@@ -100,4 +100,24 @@ body{
     #button1, #button2, #button3{
         width: 50%;
     }
+    .gold{
+        width: 40%;
+        height: 50%;
+        filter: brightness(130%);
+    }
+    .silver{
+        width: 30%;
+        height: 40%;
+        filter: brightness(110%);
+    }
+    .bronze{
+        width: 30%;
+        height: 30%;
+        filter: brightness(130%);
+    }
+    .blue{
+        width: 40%;
+        height: 60%;
+        filter: brightness(130%);
+    }
 }
